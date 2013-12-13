@@ -1,9 +1,7 @@
 Grand Viz Auto
 ==============
 
-_A month of glamorous data visualization and mapping, using the first-ever* Massachusetts-wide vehicle-miles traveled dataset._
-
-* as far as we are aware
+_A month of glamorous data visualization and mapping, using the first-ever Massachusetts-wide vehicle-miles traveled dataset._
 
 
 
