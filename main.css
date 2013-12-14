@@ -20,7 +20,7 @@
 
 .jumbotron {
   text-align: center;
-  background: url(images/headers/graffiti-blur.png) no-repeat center center; /* or 'scape-blur.png' */
+  background: url(images/headers/graffiti-blur.jpg) no-repeat center center; /* or 'scape-blur.png' */
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -101,7 +101,7 @@ h4.neon {
 }
 
 #event-hackathon { 
-  background: url(images/thumbnails/hackathon.png) no-repeat center center;
+  background: url(images/thumbnails/hackathon-sm.jpg) no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -109,7 +109,7 @@ h4.neon {
 }
 
 #event-month { 
-  background: url(images/thumbnails/month-2.png) no-repeat center center;
+  background: url(images/thumbnails/month-2-sm.jpg) no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -117,7 +117,7 @@ h4.neon {
 }
 
 #event-contest { 
-  background: url(images/thumbnails/contest.png) no-repeat center center;
+  background: url(images/thumbnails/contest-sm.jpg) no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
