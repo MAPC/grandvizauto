@@ -96,7 +96,7 @@ h4.neon {
   min-height: 150px;
   margin-left: 5px;
   margin-right: 5px;
-  box-shadow: 2px 2px 6px #AAA;
+  /*box-shadow: 2px 2px 6px #AAA;*/
   border-radius: 10px;
 }
 
@@ -132,6 +132,14 @@ h4.neon {
   font-size: 24px;
   margin: 90px 0;
   text-align: center;
+}
+
+#coming-soon ul {
+  text-align: left;
+}
+
+#coming-soon li {
+  padding-bottom: 30px;
 }
 
 h2 { font-family: NiceBoldCaps; }
