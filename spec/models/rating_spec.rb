@@ -11,4 +11,28 @@ describe Rating do
   it { should respond_to :submission }
 
   it { should be_valid }
+
+  describe "score is blank" do
+
+    before { @rating.score = " " }
+
+    it { should_not be_valid }
+    
+  end
+
+  describe "score is too high" do
+
+    before { @rating.score = 6 }
+
+    it { should_not be_valid }
+
+  end
+
+  describe "score is too low" do
+
+    before { @rating.score = -1 }
+
+    it { should_not be_valid }
+    
+  end 
 end

@@ -5,7 +5,7 @@ class CreateSubmissions < ActiveRecord::Migration
       t.string :title
       t.text :description
       t.string :url
-      t.boolean :rules, default: false
+      t.boolean :agreed, default: false
       t.boolean :approved, default: false
 
       t.timestamps

@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(:version => 20140213192801) do
     t.string   "title"
     t.text     "description"
     t.string   "url"
-    t.boolean  "rules",       :default => false
+    t.boolean  "agreed",      :default => false
     t.boolean  "approved",    :default => false
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
