@@ -21,25 +21,28 @@ ActiveRecord::Schema.define(:version => 20140213192801) do
     t.datetime "updated_at",    :null => false
   end
 
+  add_index "ratings", ["submission_id"], :name => "index_ratings_on_submission_id"
+  add_index "ratings", ["user_id"], :name => "index_ratings_on_user_id"
+
   create_table "submissions", :force => true do |t|
     t.integer  "user_id"
     t.string   "title"
     t.text     "description"
     t.string   "url"
-    t.boolean  "rules"
-    t.boolean  "approved"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.boolean  "rules",       :default => false
+    t.boolean  "approved",    :default => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   add_index "submissions", ["user_id"], :name => "index_submissions_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"
-    t.boolean  "admin"
-    t.boolean  "judge"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.boolean  "admin",      :default => false
+    t.boolean  "judge",      :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
 end

@@ -7,5 +7,7 @@ class CreateRatings < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :ratings, :user_id
+    add_index :ratings, :submission_id
   end
 end
