@@ -120,11 +120,11 @@ describe "Submission pages" do
 
       end
 
-      pending "with a file and no url" do
+      describe "with a file and no url" do
         before do
           fill_in "Title",        with: "A Very Good Title"
           fill_in "Description",  with: "This is an excellent, not just 'good' description of the visualization herein. Made in a day."
-          # TODO attach a file
+          attach_file "Upload a file", mock_file.path
           check 'Agree to the terms' 
         end
         it "should create a submission" do

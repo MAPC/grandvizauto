@@ -70,18 +70,28 @@ describe Submission do
     it { should_not be_valid }
   end
 
+
   pending "screenshot is missing" do
   end
 
-  pending "must have one of URL or file" do
+  describe "must have one of URL or file" do
 
-    pending "without a file and url" do
+    describe "without a file and without a url" do
+      before { @submission.url  = nil }
+      it { should_not be_valid }
     end
 
-    pending "without a file and with a url" do
+    describe "without a file but with a url" do
+      before { @submission.file = nil }
+      it { should be_valid }
     end
 
-    pending "with a file and without a url" do
+    describe "with a file but without a url" do
+      before do
+        @submission.url  = nil
+        @submission.file = mock_file
+      end
+      it { should be_valid }
     end
   end
 
