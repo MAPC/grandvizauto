@@ -7,3 +7,12 @@ FactoryGirl.define do
     url "http://ariofsevit.com/data-driven"
   end
 end
+
+
+FactoryGirl.define do
+  factory :user do
+    name      "Matt"
+    provider  "github"
+    uid       "000001"
+  end
+end

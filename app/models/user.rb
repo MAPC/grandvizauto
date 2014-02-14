@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_many :ratings
   has_many :submissions
-  attr_accessible :name, :admin, :judge, :provider, :uid
+  attr_accessible :name
 
   def self.create_with_omniauth(auth)
     create! do |user|

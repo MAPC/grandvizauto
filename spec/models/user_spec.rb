@@ -17,4 +17,5 @@ describe User do
   it { should respond_to :uid }
 
   it { should be_valid }
+  
 end

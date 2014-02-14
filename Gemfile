@@ -12,6 +12,7 @@ gem 'omniauth-github'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'launchy'
   gem 'factory_girl_rails', '4.1.0'
   gem 'capybara'
 end
