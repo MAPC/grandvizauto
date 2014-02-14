@@ -1,4 +1,12 @@
 Grandvizauto::Application.routes.draw do
+
+  get "submissions/index"
+
+  get "submissions/show"
+
+  get "submissions/new"
+
+  resources :submissions
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

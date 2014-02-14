@@ -1,0 +1,16 @@
+<h1>Submit your work!</h1>
+
+<%= form_for @submission do |f| %>
+
+  <%= f.label :title, 'Title' %>
+  <%= f.text_field :title %>
+
+  <%= f.label :description, 'Description' %>
+  <%= f.text_field :description %>
+
+  <%= f.label :url, 'URL' %>
+  <%= f.text_field :url %>
+
+  <%= f.label :agreed, 'Agree to the terms' %>
+  <%= f.check_box(:agreed) %>
+<% end %>
