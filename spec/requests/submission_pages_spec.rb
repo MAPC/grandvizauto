@@ -5,7 +5,11 @@ describe "Submission pages" do
   subject { page }
 
   describe "single submission page" do
-    let(:submission) { FactoryGirl.create(:submission) }
+    
+    let!(:previous)   { FactoryGirl.create(:submission, title: "The Previous Submission") }
+    let!(:submission) { FactoryGirl.create(:submission) }
+    let!(:next_one)   { FactoryGirl.create(:submission, title: "On to the Next One") }
+
     before { visit submission_path(submission) }
     
     it { should have_selector('h3', text: 'Submission') }
@@ -14,6 +18,16 @@ describe "Submission pages" do
     it { should have_link('Next') }
     it { should have_link('Previous') }
     it { should_not have_selector('div', text: /rate/i ) }
+
+    describe "next submission" do
+      before { click_link "Next" }
+      it { should have_selector('h1', text: next_one.title )}
+    end
+
+    describe "previous submission" do
+      before { click_link "Previous" }
+      it { should have_selector('h1', text: previous.title )}
+    end
 
     describe "upon signing in" do
       let(:user) { FactoryGirl.create(:user) }

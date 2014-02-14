@@ -4,8 +4,8 @@
   <%= @submission.description %>
 </p>
 
-<a href='#'>Next</a>
-<a href='#'>Previous</a>
+<%= link_to 'Next',     submission_path(@submission.next) if @submission.next %>
+<%= link_to 'Previous', submission_path(@submission.prev) if @submission.prev %>
 
 <% if signed_in? %>
   <div class='rating' id='rating'>
