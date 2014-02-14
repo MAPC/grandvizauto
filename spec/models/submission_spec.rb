@@ -71,6 +71,51 @@ describe Submission do
   end
 
   pending "must have one of URL or file" do
+
+    pending "without a file and url" do
+    end
+
+    pending "without a file and with a url" do
+    end
+
+    pending "with a file and without a url" do
+    end
+  end
+
+  describe "next and previous" do
+    
+    before { @submission.save }
+
+    let!(:second) { FactoryGirl.create(:submission) }
+    let!(:third)  { FactoryGirl.create(:submission) }
+    
+    describe "skip blank ids" do
+      before { second.destroy }
+
+      it "has a gap between its id and the third submission" do
+        ( @submission.id - third.id ).abs > 1
+      end
+
+      describe "#next" do
+        it "returns the third submission" do
+          @submission.next.should == third
+        end
+      end
+
+      describe "#prev" do
+        it "is previous to the third submission" do
+          third.prev.should == @submission
+        end
+      end
+
+      describe "#previous" do
+        it "is previous to the third submission" do
+          third.previous.should == @submission
+        end
+      end
+
+    end
+
   end
 
 
