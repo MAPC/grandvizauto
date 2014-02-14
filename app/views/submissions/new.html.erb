@@ -11,6 +11,9 @@
   <%= f.label :url, 'URL' %>
   <%= f.text_field :url %>
 
+  <%= f.label :file, 'Upload a file' %>
+  <%= f.file_field :file %>
+
   <% unless @submission.agreed? %>
     <%= f.label :agreed, 'Agree to the terms' %>
     <%= f.check_box(:agreed) %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140214154301) do
+ActiveRecord::Schema.define(:version => 20140214212845) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -37,10 +37,14 @@ ActiveRecord::Schema.define(:version => 20140214154301) do
     t.string   "title"
     t.text     "description"
     t.string   "url"
-    t.boolean  "agreed",      :default => false
-    t.boolean  "approved",    :default => false
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
+    t.boolean  "agreed",            :default => false
+    t.boolean  "approved",          :default => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
   end
 
   add_index "submissions", ["user_id"], :name => "index_submissions_on_user_id"

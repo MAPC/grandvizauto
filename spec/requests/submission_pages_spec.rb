@@ -61,10 +61,11 @@ describe "Submission pages" do
     describe "new submission page" do  
       before { visit new_submission_path }
       
-      it { should have_selector('h1', text: 'Submit your work!')}
+      it { should have_selector('h1',    text: 'Submit your work!')}
       it { should have_selector('label', text: 'Title') }
       it { should have_selector('label', text: 'Description') }
       it { should have_selector('label', text: 'URL') }
+      it { should have_selector('label', text: 'Upload a file') }
       it { should have_selector('label', text: 'Agree') }
     end
 
@@ -76,6 +77,18 @@ describe "Submission pages" do
         it "should not create a submission" do
           expect { click_button submit }.not_to change(Submission, :count)
         end
+
+        describe "with almost valid information" do
+          before do
+            fill_in "Title",        with: "A Valid Title"
+            fill_in "Description",  with: "A valid description of the visualization herein. Made in a day. Can you believe even?"
+            check 'Agree to the terms'
+          end
+
+          it "should not create a submission" do
+            expect { click_button submit }.not_to change(Submission, :count)
+          end 
+        end
       end
 
       describe "with otherwise valid information" do
@@ -84,7 +97,6 @@ describe "Submission pages" do
           fill_in "Title",        with: "A Valid Title"
           fill_in "Description",  with: "This is a fairly good description of the visualization herein. Made in a day."
           fill_in "URL",          with: "http://www.thisisaurlright.net/data-viz"
-          # TODO: attach file
         end
 
         describe "without checking the agree box" do
@@ -107,6 +119,19 @@ describe "Submission pages" do
         end
 
       end
+
+      pending "with a file and no url" do
+        before do
+          fill_in "Title",        with: "A Very Good Title"
+          fill_in "Description",  with: "This is an excellent, not just 'good' description of the visualization herein. Made in a day."
+          # TODO attach a file
+          check 'Agree to the terms' 
+        end
+        it "should create a submission" do
+          expect { click_button submit }.to change(Submission, :count).by(1)
+        end
+      end
+
     end
 
     describe "editing a submission" do

@@ -13,6 +13,9 @@ gem 'omniauth-facebook'
 
 gem 'kaminari', '~> 0.15.0'
 
+gem 'aws-sdk'
+gem 'paperclip', '~> 3.0'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'launchy'

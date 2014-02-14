@@ -4,6 +4,7 @@ describe Submission do
   
   before { @submission = Submission.new(title: "An Innovative Way of looking at Debt",
                                         description: "it ain't b/c i'm ugly, because i couldn't rise, couldn't start a company, make money, couldn't make it. but because i want to dismantle it.",
+                                        url: "http://agoodsite.net",
                                         agreed: true) }
 
   subject { @submission }
@@ -14,6 +15,8 @@ describe Submission do
   it { should respond_to :agreed? }
   it { should respond_to :title }
   it { should respond_to :url }
+
+  it { should respond_to :file }
 
   it { should be_valid }
 

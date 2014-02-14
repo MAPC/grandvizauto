@@ -30,6 +30,10 @@ GEM
       multi_json (~> 1.0)
     addressable (2.3.5)
     arel (3.0.3)
+    aws-sdk (1.34.0)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
+      uuidtools (~> 2.1)
     builder (3.0.4)
     capybara (2.2.1)
       mime-types (>= 1.16)
@@ -37,6 +41,10 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.3)
+      climate_control (>= 0.0.3, < 1.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -98,6 +106,11 @@ GEM
       multi_json (~> 1.3)
       oauth2 (~> 0.9.3)
       omniauth (~> 1.2)
+    paperclip (3.5.4)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.3)
+      mime-types
     pg (0.17.1)
     polyglot (0.3.3)
     rack (1.4.5)
@@ -156,6 +169,7 @@ GEM
     uglifier (2.4.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    uuidtools (2.1.4)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -163,6 +177,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aws-sdk
   capybara
   coffee-rails (~> 3.2.1)
   factory_girl_rails (= 4.1.0)
@@ -172,6 +187,7 @@ DEPENDENCIES
   omniauth
   omniauth-facebook
   omniauth-github
+  paperclip (~> 3.0)
   pg (~> 0.17.1)
   rails (= 3.2.13)
   rspec-rails
