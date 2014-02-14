@@ -11,8 +11,11 @@
   <%= f.label :url, 'URL' %>
   <%= f.text_field :url %>
 
-  <%= f.label :agreed, 'Agree to the terms' %>
-  <%= f.check_box(:agreed) %>
+  <% unless @submission.agreed? %>
+    <%= f.label :agreed, 'Agree to the terms' %>
+    <%= f.check_box(:agreed) %>
+  <% end %>
+  
 
   <%= f.submit 'Submit' %>
 <% end %>

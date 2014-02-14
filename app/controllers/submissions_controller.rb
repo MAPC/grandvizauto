@@ -1,8 +1,9 @@
 class SubmissionsController < ApplicationController
-  before_filter :signed_in_user, only: [:new, :create, :edit, :update]
+  before_filter :signed_in_user, except: [:index, :show]
 
 
   def index
+    @submissions = Submission.page params[:page]
   end
 
 
@@ -26,10 +27,23 @@ class SubmissionsController < ApplicationController
     @submission = Submission.new(params[:submission])
 
     if @submission.save
-      flash[:notice] = "Saved successfully."
-      redirect_to submission_path(@submission)
+      flash[:notice] = "Your entry will be viewable once we review & approve it, within three days.\nAdd an email to your user profile to be notified of approval/rejection."
+      redirect_to root_path
     else
       flash[:error] = "Invalid submission. Check errors."
+      render 'new'
+    end
+  end
+
+  def update
+    @submission = Submission.find params[:id]
+    @submission.update_attributes(params[:submission])
+
+    if @submission.save
+      flash[:notice] = "You edited your submission #{@submission.title}."
+      redirect_to submission_path(@submission)
+    else
+      flash[:error] = "Invalid edits. Check errors."
       render 'new'
     end
   end

@@ -8,6 +8,8 @@ class Submission < ActiveRecord::Base
   validates :url, allow_blank: true, length: { minimum: 7, maximum: 255 }
   validates :agreed, acceptance: { accept: true }
 
+  paginates_per 20
+
   def next
     self.class.where("id > ?", id).order("id ASC").first
   end

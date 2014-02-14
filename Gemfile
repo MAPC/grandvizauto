@@ -5,11 +5,13 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'pg'
+gem 'pg', '~> 0.17.1'
 
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'omniauth-facebook'
+
+gem 'kaminari', '~> 0.15.0'
 
 group :development, :test do
   gem 'rspec-rails'

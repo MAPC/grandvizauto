@@ -54,7 +54,8 @@ describe "Submission pages" do
   end
 
   describe "after signing in" do
-    let(:user) { FactoryGirl.create(:user) }
+    let(:user)   { FactoryGirl.create(:user) }
+    let(:submit) { "Submit" }
     before { sign_in user }
 
     describe "new submission page" do  
@@ -70,8 +71,6 @@ describe "Submission pages" do
     describe "submitting an entry" do
 
       before { visit new_submission_path }
-
-      let(:submit) { "Submit" }
 
       describe "with invalid information" do
         it "should not create a submission" do
@@ -99,13 +98,37 @@ describe "Submission pages" do
           it "should create a submission" do
             expect { click_button submit }.to change(Submission, :count).by(1)
           end
+
+          describe "after submitting" do
+            before { click_button submit }
+            it { should have_content "will be viewable" }
+            it { should have_selector('h1', text: 'Grand Viz Auto') } # tests we've gone back to '/'
+          end
         end
 
       end
     end
 
     describe "editing a submission" do
-    end    
+      let(:submission) { FactoryGirl.create(:submission, title: "Edit Me, I'm a Submission!") }
+      before { visit edit_submission_path( submission ) }
+
+      it { should_not have_content "Agree" }
+
+      describe "with valid information" do
+        before { fill_in "Title", with: "Surely Another Valid Title" }
+
+        it "should not create a new submission" do
+          expect { click_button submit }.not_to change(Submission, :count)
+        end
+
+        describe "redirects to submission show page" do
+          before { click_button submit }
+          it { should have_selector('h3', text: 'Submission') }
+          it { should have_selector('h1', text: "Surely Another Valid Title") }
+        end
+      end
+    end
     
   end
 
