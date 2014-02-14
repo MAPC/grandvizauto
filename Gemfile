@@ -9,6 +9,7 @@ gem 'pg'
 
 gem 'omniauth'
 gem 'omniauth-github'
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'rspec-rails'

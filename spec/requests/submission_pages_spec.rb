@@ -13,7 +13,17 @@ describe "Submission pages" do
     it { should have_content submission.description }
     it { should have_link('Next') }
     it { should have_link('Previous') }
-    it { should have_selector('div', text: /rate/i ) }
+    it { should_not have_selector('div', text: /rate/i ) }
+
+    describe "upon signing in" do
+      let(:user) { FactoryGirl.create(:user) }
+      before do
+        sign_in user
+        visit submission_path(submission)
+      end
+
+      it { should have_selector('div', text: /rate/i ) }
+    end
   end
 
   describe "before signing in" do

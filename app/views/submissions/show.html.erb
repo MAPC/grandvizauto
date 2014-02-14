@@ -7,6 +7,8 @@
 <a href='#'>Next</a>
 <a href='#'>Previous</a>
 
-<div class='rating' id='rating'>
-  Rate this entry!
-</div>
+<% if signed_in? %>
+  <div class='rating' id='rating'>
+    Rate this entry!
+  </div>
+<% end %>
