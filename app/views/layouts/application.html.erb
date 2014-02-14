@@ -8,6 +8,23 @@
 </head>
 <body>
 
+
+<div id="user_nav">
+  <% if current_user %>
+    Glad you're here, <%= current_user.name %>.
+    <%= link_to "Sign Out", signout_path %>
+  <% else %>
+    <%= link_to "Sign in with GitHub", "/auth/github" %>
+  <% end %>
+</div>
+
+<p class="notice"><%= flash[:notice] %></p>
+<p class="alert"> <%= flash[:alert] %></p>
+
+<% if current_user %>
+  <button>Download the data</button>
+<% end %>
+
 <%= yield %>
 
 </body>

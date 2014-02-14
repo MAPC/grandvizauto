@@ -7,6 +7,9 @@ gem 'rails', '3.2.13'
 
 gem 'pg'
 
+gem 'omniauth'
+gem 'omniauth-github'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails', '4.1.0'

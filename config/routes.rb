@@ -3,6 +3,9 @@ Grandvizauto::Application.routes.draw do
   match "/data" => "static_pages#data"
   match "/challenge" => "static_pages#challenge"
 
+  match '/auth/:provider/callback' => 'sessions#create'
+  match "/signout" => "sessions#destroy", as: :signout
+
   resources :submissions
 
   root to: "static_pages#home"

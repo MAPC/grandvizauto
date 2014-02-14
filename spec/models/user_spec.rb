@@ -13,5 +13,8 @@ describe User do
   it { should respond_to :admin }
   it { should respond_to :judge }
 
+  it { should respond_to :provider }
+  it { should respond_to :uid }
+
   it { should be_valid }
 end
