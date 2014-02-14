@@ -1,12 +1,11 @@
 Grandvizauto::Application.routes.draw do
 
-  get "submissions/index"
-
-  get "submissions/show"
-
-  get "submissions/new"
+  match "/data" => "static_pages#data"
+  match "/challenge" => "static_pages#challenge"
 
   resources :submissions
+
+  root to: "static_pages#home"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
