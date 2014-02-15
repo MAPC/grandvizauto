@@ -8,8 +8,9 @@ describe "Static pages" do
     before { visit root_path }
     it { should have_selector('h1', text: 'Grand Viz Auto') }
 
-    pending "when signed in" do
-      # before { sign_in user }
+    describe "when signed in" do
+      let(:user) { FactoryGirl.create(:user) }
+      before { sign_in user }
       it { should have_selector('button', 'Download')}
     end
   end

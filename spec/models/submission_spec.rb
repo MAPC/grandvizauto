@@ -5,6 +5,7 @@ describe Submission do
   before { @submission = Submission.new(title: "An Innovative Way of looking at Debt",
                                         description: "it ain't b/c i'm ugly, because i couldn't rise, couldn't start a company, make money, couldn't make it. but because i want to dismantle it.",
                                         url: "http://agoodsite.net",
+                                        screenshot: mock_file,
                                         agreed: true) }
 
   subject { @submission }
@@ -17,6 +18,7 @@ describe Submission do
   it { should respond_to :url }
 
   it { should respond_to :file }
+  it { should respond_to :screenshot }
 
   it { should be_valid }
 
@@ -70,10 +72,6 @@ describe Submission do
     it { should_not be_valid }
   end
 
-
-  pending "screenshot is missing" do
-  end
-
   describe "must have one of URL or file" do
 
     describe "without a file and without a url" do
@@ -93,6 +91,11 @@ describe Submission do
       end
       it { should be_valid }
     end
+  end
+
+  describe "without a screenshot" do
+    before { @submission.screenshot = nil }
+    it { should_not be_valid }
   end
 
   describe "next and previous" do

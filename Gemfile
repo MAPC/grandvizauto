@@ -18,9 +18,12 @@ gem 'paperclip', '~> 3.0'
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'launchy'
   gem 'factory_girl_rails', '4.1.0'
+  
   gem 'capybara'
+  gem 'launchy'
+
+  gem 'faker'
 end
 
 

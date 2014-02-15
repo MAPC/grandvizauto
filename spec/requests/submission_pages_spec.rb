@@ -65,6 +65,7 @@ describe "Submission pages" do
       it { should have_selector('label', text: 'Title') }
       it { should have_selector('label', text: 'Description') }
       it { should have_selector('label', text: 'URL') }
+      it { should have_selector('label', text: 'screenshot') }
       it { should have_selector('label', text: 'Upload a file') }
       it { should have_selector('label', text: 'Agree') }
     end
@@ -97,6 +98,7 @@ describe "Submission pages" do
           fill_in "Title",        with: "A Valid Title"
           fill_in "Description",  with: "This is a fairly good description of the visualization herein. Made in a day."
           fill_in "URL",          with: "http://www.thisisaurlright.net/data-viz"
+          attach_file "Attach a screenshot", mock_file.path
         end
 
         describe "without checking the agree box" do
@@ -124,7 +126,8 @@ describe "Submission pages" do
         before do
           fill_in "Title",        with: "A Very Good Title"
           fill_in "Description",  with: "This is an excellent, not just 'good' description of the visualization herein. Made in a day."
-          attach_file "Upload a file", mock_file.path
+          attach_file "Attach a screenshot", mock_file.path
+          attach_file "Upload a file",       mock_file.path
           check 'Agree to the terms' 
         end
         it "should create a submission" do

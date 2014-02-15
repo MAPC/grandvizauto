@@ -5,4 +5,6 @@ class Rating < ActiveRecord::Base
 
   validates :score, presence: true, inclusion: 0..5
 
+  
+
 end

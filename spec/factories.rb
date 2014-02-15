@@ -5,6 +5,9 @@ FactoryGirl.define do
     agreed true
     title "Drive/Time"
     url "http://ariofsevit.com/data-driven"
+    screenshot_file_name 'test.png'
+    screenshot_content_type 'image/png'
+    screenshot_file_size 1024
   end
 end
 

@@ -2,9 +2,9 @@ class Submission < ActiveRecord::Base
   belongs_to :user
   has_many :ratings
   has_attached_file :file
-  # has_attached_file :screenshot
+  has_attached_file :screenshot
   
-  attr_accessible :approved, :description, :agreed, :title, :url, :file
+  attr_accessible :approved, :description, :agreed, :title, :url, :file, :screenshot
 
   validates :title, presence: true, length: { minimum: 3, maximum: 140 }
   validates :description, presence: true, length: { minimum: 60, maximum: 1500 }
@@ -15,8 +15,8 @@ class Submission < ActiveRecord::Base
   validates_attachment_presence :file, if: :no_url
   validates_attachment_content_type :file, content_type: /\Aimage\/.*\Z|\A.*pdf\Z|\A.*html\Z|\A.*zip\Z/i
   
-  # validates_attachment_presence :screenshot
-  # validates_attachment_content_type :screenshot, content_type: /\Aimage\/.*\Z/i
+  validates_attachment_presence :screenshot
+  validates_attachment_content_type :screenshot, content_type: /\Aimage\/.*\Z/i
 
   paginates_per 10
 

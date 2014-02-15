@@ -37,13 +37,8 @@ Grandvizauto::Application.configure do
 
   # Development S3 bucket
   config.paperclip_defaults = {
-    storage: :s3,
-    s3_credentials: {
-      bucket: ENV['GVA_BUCKET_NAME'],
-      access_key_id: ENV['AWS_ACCESS_KEY_ID'],
-      secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
-    },
-    path: "resources/:id/:style/:basename.:extension",
+    storage: :filesystem,
+    path: "public/resources/:id/:style/:basename.:extension",
     default_url: "/404.html"
   }
 end
