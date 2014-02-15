@@ -28,6 +28,20 @@ class Submission < ActiveRecord::Base
     self.class.where("id < ?", id).order("id DESC").first
   end
 
+
+  def average_rating
+    self.ratings.sum(:score) / self.ratings.count
+  end
+
+  def average_user_rating
+    self.ratings.select { |r| !r.user.judge? }.sum { |r| r.score }
+  end
+
+  def average_judge_rating
+    self.ratings.select { |r| r.user.judge? }.sum { |r| r.score }
+  end
+
+
   alias_method :previous, :prev
 
   private

@@ -46,8 +46,11 @@ namespace :db do
 
     Submission.all.each do |entry|
       nums.sample.times do
-        rating = entry.ratings.create(score: few.sample + 1)
-        puts "#{entry.title}: #{rating.score}"
+        rating = entry.ratings.create( score: few.sample + 1)
+        rating.user = User.offset(rand(User.count-1)+1).first
+        rating.save
+        rating.reload
+        puts "#{entry.title} by #{entry.user.name}: #{rating.score} by #{rating.user.name}"
       end
     end
 

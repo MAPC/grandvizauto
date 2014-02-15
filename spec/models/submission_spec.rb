@@ -17,6 +17,10 @@ describe Submission do
   it { should respond_to :title }
   it { should respond_to :url }
 
+  it { should respond_to :average_rating }
+  it { should respond_to :average_user_rating }
+  it { should respond_to :average_judge_rating }
+
   it { should respond_to :file }
   it { should respond_to :screenshot }
 
@@ -129,9 +133,33 @@ describe Submission do
           third.previous.should == @submission
         end
       end
+    end
+  end
 
+  pending "rating methods" do
+
+    let(:user)   { FactoryGirl.create(:user) }
+    let(:user2)  { FactoryGirl.create(:user, name: "George") }
+    let(:judge)  { FactoryGirl.create(:user, judge: true, name: "Reinhold") }
+    let(:judge2) { FactoryGirl.create(:user, judge: true, name: "Judy") }
+    let(:raters) { [user, user2, judge, judge2] }
+    
+    before do
+      raters.each do |rater|
+        rating = @submission.ratings.build(score: (0..5).to_a.sample)
+        rating.user = rater
+        rating.save ; rating.reload
+      end
     end
 
+    pending "#average_rating" do
+    end
+
+    pending "#average_user_rating" do
+    end
+
+    pending "#average_judge_rating" do
+    end
   end
 
 

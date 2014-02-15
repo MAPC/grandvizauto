@@ -11,4 +11,12 @@ class User < ActiveRecord::Base
     end
   end
 
+  def admin?
+    admin
+  end
+
+  def judge?
+    judge
+  end
+
 end

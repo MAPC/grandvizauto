@@ -21,18 +21,12 @@ describe Rating do
   end
 
   describe "score is too high" do
-
     before { @rating.score = 6 }
-
     it { should_not be_valid }
-
   end
 
   describe "score is too low" do
-
     before { @rating.score = -1 }
-
     it { should_not be_valid }
-    
   end 
 end
