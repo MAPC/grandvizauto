@@ -33,7 +33,7 @@ class Submission < ActiveRecord::Base
     self.ratings.sum(:score) / self.ratings.count
   end
 
-  def average_user_rating
+  def average_user_rating # excludes judge ratings
     self.ratings.select { |r| !r.user.judge? }.sum { |r| r.score }
   end
 

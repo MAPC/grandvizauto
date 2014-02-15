@@ -7,6 +7,7 @@ Grandvizauto::Application.routes.draw do
   match "/signout" => "sessions#destroy", as: :signout
 
   resources :submissions
+  resources :users
 
   root to: "static_pages#home"
   

@@ -1,10 +1,10 @@
 FactoryGirl.define do
   factory :submission do
     approved true
-    description "This visualization shows the evolution of driving in Greater Boston."
+    sequence(:description) { Faker::Lorem.sentences(5).join(" ") }
     agreed true
-    title "Drive/Time"
-    url "http://ariofsevit.com/data-driven"
+    sequence(:title) { Faker::Company.catch_phrase }
+    sequence(:url)   { Faker::Internet.url }
     screenshot_file_name 'test.png'
     screenshot_content_type 'image/png'
     screenshot_file_size 1024
