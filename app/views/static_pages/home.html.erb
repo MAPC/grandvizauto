@@ -1,7 +1,65 @@
-<h1>Grand Viz Auto</h1>
+<div class='jumbotron'>
+  <h5>Welcome to the</h5>
+  <h1>Grand Viz Auto</h1>
+  <h4 class='neon'>Data Challenge</h4>
 
-<p>
-  Intro
-</p>
+<!-- <p>A month of glamorous data visualization and mapping, using the first-ever* Massachusetts-wide vehicle-miles-traveled dataset.</p> -->
+  <br/>
+  <h5>Data released <strong>January 2014</strong></h5>
+  <h5>Hackathon <strong>February 2014</strong></h5>
+</div>
 
-<%= link_to 'My Entries', user_path(current_user) %>
+<div class="row padded">
+  <div class='col-sm-4'>
+    <div class="event" id="event-hackathon">
+      <h4>Hackathon</h4>
+    </div>
+  </div>
+  <div class='col-sm-4'>
+    <div class="event" id="event-month">
+      <h4>Month-Long Challenge</h4>
+    </div>
+  </div>
+  <div class='col-sm-4'>
+    <div class="event" id="event-contest">
+      <h4>Visualization Contest</h4>
+    </div>
+  </div>
+</div>
+
+<% if signed_in? %>
+  <button>Download the data</button>
+<% else %>
+  <p>Sign in to download the data.</p>
+<% end %>
+
+
+<div class="row" id="coming-soon">
+  <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+
+    <h2>Event details coming January 2014.</h2>
+
+    <br/>
+    
+    <ul>
+      <li>Design, develop, analyze, imagine: no matter your skills, you can participate in the Data Challenge.</li>
+
+      <li>Visualize the first vehicle-miles dataset for all of Massachusetts.</li>
+
+      <li>Create beautiful and functional visualizations.</li>
+
+      <li>Build your skills with workshops on problem analysis, design, and development.</li>
+
+      <li>Develop insights into transportation-related problems including traffic, air quality, and climate.</li>
+    </ul>
+
+    <p>
+      Let <a href='http://twitter.com/grandvizauto' target='_blank'>@GrandVizAuto</a> keep you updated.
+    </p>
+    
+    <p>
+      Ask questions and form teams on the <a href='https://mapc.uservoice.com/forums/236447-grand-viz-auto' target='_blank'>Grand Viz Auto UserVoice</a>.
+    </p>
+
+  </div>
+</div>

@@ -8,25 +8,19 @@
 </head>
 <body>
 
+<%= render 'layouts/header' %>
 
-<div id="user_nav">
-  <% if signed_in? %>
-    Glad you're here, <%= current_user.name %>.
-    <%= link_to "Sign Out", signout_path %>
-  <% else %>
-    <%= link_to "Sign in with GitHub", "/auth/github" %>
-    <%= link_to "Sign in with Facebook", "/auth/facebook" %>
-  <% end %>
+<div class="container">
+
+  <div class="row">
+    <%= yield %>
+  </div>
+
+  <%= render 'layouts/footer' %>
+  <%= debug(params) if Rails.env.development? %>
+
 </div>
 
-<p class="notice"><%= flash[:notice] %></p>
-<p class="alert"> <%= flash[:alert] %></p>
-
-<% if signed_in? %>
-  <button>Download the data</button>
-<% end %>
-
-<%= yield %>
 
 </body>
 </html>
