@@ -8,7 +8,34 @@
 <%= link_to 'Next',     submission_path(@submission.next) if @submission.next %>
 
 <% if signed_in? && !current_user?(@submission.user) %>
-  <div class='rating' id='rating'>
-    Rate this entry!
-  </div>
+  <p>Average rating</p>
+  <div id="average-rating"></div>
+
+  <p>Rate this entry!</p>
+  <div id="user-rating"></div>
 <% end %>
+
+<script>
+$(document).on('ready', function () {
+
+  $('#average-rating').raty({
+    readOnly: true,
+    score: <%= @submission.average_rating %>,
+    path: '/assets'
+  });
+
+  $('#user-rating').raty({
+    score: '<%= @rating.score %>',
+    path: '/assets',
+    click: function(score, evt) {
+      $.ajax({
+        url: '/ratings/' + <%= @rating.id %>,
+        type: 'PUT',
+        data: { score: score }
+      });
+    }
+  });
+
+})
+
+</script>

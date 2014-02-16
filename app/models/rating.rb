@@ -1,5 +1,5 @@
 class Rating < ActiveRecord::Base
-  attr_accessible :score
+  attr_accessible :score, :user, :submission
   belongs_to :submission
   belongs_to :user
 
