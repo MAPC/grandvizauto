@@ -3,5 +3,9 @@
     <%= link_to submission.title, submission_path( submission ) %>
   </strong>
   <br/>
+  <%= image_tag local_path_for(submission), size: '1000x100' %>
+  <br/>
   <%= submission.description %>
+  <br/>
+  <br/>
 </div>
