@@ -29,9 +29,19 @@ $(document).on('ready', function () {
     path: '/assets',
     click: function(score, evt) {
       $.ajax({
+        <% if @rating.score == 0 %>
+        url: '/ratings/',
+        type: 'POST',
+        data: { rating: {
+                  user_id: <%= current_user.id %>,
+                  submission_id: <%= @submission.id %>,
+                  score: score }
+              }
+        <% else %>
         url: '/ratings/' + <%= @rating.id %>,
         type: 'PUT',
         data: { score: score }
+        <% end %>
       });
     }
   });

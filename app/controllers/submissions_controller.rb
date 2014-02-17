@@ -9,7 +9,7 @@ class SubmissionsController < ApplicationController
 
   def show
     @submission = Submission.find params[:id]
-    @rating     = Rating.where(user_id: current_user.id, submission_id: @submission.id).first || Rating.create(user: current_user, submission: @submission, score: 0)
+    @rating     = Rating.where(user_id: current_user.id, submission_id: @submission.id).first || Rating.new(user: current_user, submission: @submission, score: 0)
   end
 
 
@@ -28,7 +28,7 @@ class SubmissionsController < ApplicationController
     @submission = Submission.new(params[:submission])
 
     if @submission.save
-      flash[:notice] = "Your entry will be viewable once we review & approve it, within three days.\nAdd an email to your user profile to be notified of approval/rejection."
+      flash[:notice] = "Your entry will be viewable once we review & approve it, within three days. Add an email to your user profile to be notified of approval/rejection."
       redirect_to root_path
     else
       flash[:error] = "Invalid submission. Check errors."

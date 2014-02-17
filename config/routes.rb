@@ -9,7 +9,7 @@ Grandvizauto::Application.routes.draw do
 
   resources :submissions
   resources :users
-  resources :ratings, only: :update
+  resources :ratings, only: [:create, :update]
 
   root to: "static_pages#home"
   
