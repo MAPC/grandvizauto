@@ -10,7 +10,8 @@ class Submission < ActiveRecord::Base
   validates :description, presence: true, length: { minimum: 60, maximum: 1500 }
   validates :agreed, acceptance: { accept: true }
 
-  validates :url, presence: true, length: { minimum: 7, maximum: 255 }, if: :no_file
+  validates :url, presence: { message: "Cannot be blank if you aren't uploading a file."},
+            length: { minimum: 7, maximum: 255 }, if: :no_file
   
   validates_attachment_presence :file, if: :no_url
   validates_attachment_content_type :file, content_type: /\Aimage\/.*\Z|\A.*pdf\Z|\A.*html\Z|\A.*zip\Z/i

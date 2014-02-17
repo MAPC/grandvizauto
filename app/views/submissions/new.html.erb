@@ -1,7 +1,9 @@
 <h1>Submit your work!</h1>
 
 <%= form_for @submission do |f| %>
-
+  
+  <%= render partial: 'shared/error_messages', locals: { submission: @submission } %>
+  
   <%= f.label :title, 'Title' %>
   <%= f.text_field :title %>
 
