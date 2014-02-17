@@ -10,6 +10,7 @@ gem 'pg', '~> 0.17.1'
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 
 gem 'kaminari', '~> 0.15.0'
 
