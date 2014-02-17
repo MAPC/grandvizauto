@@ -22,9 +22,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">I do not agree.</button>
-        <!-- NOTICE: Navigating to the following link from source 
-                     is equivalent to agreeing to the above terms. -->
-        <a href="https://s3.amazonaws.com/files.hubwaydatachallenge.org/updated_hubway_station_list_2014.csv" class="btn btn-primary">I read and agree to these terms.</a>
+        <%= link_to "I read and agree to these terms.", '/agree', class: 'btn btn-primary' %>
       </div>
     </div>
   </div>
