@@ -13,9 +13,15 @@
 
   <p>Rate this entry!</p>
   <div id="user-rating"></div>
+  
 <% end %>
 
+<a href="https://twitter.com/share" data-text="Check out this great visualization by Person!" data-url="http://127.0.0.1:3000<%= submission_path(@submission) %>" data-via="GrandVizAuto" class="twitter-share-button" data-lang="en">Tweet</a>
+
+<div class="fb-share-button" data-href="http://127.0.0.1:3000<%= submission_path(@submission) %>" data-type="button_count"></div>
+
 <script>
+
 $(document).on('ready', function () {
 
   $('#average-rating').raty({
