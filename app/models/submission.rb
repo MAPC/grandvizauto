@@ -46,6 +46,11 @@ class Submission < ActiveRecord::Base
   end
 
 
+  def user_name
+    self.user.name
+  end
+
+
   alias_method :previous, :prev
 
   private
