@@ -1,79 +1,189 @@
-<div class='jumbotron'>
-  <h5>Welcome to the</h5>
-  <h1>Grand Viz Auto</h1>
-  <h4 class='neon'>Data Challenge</h4>
+<div class="jumbotron">
+  <h1>
+    37 Billion Miles
+  </h1>
+  <h2>
+    A Data Challenge
+  </h2>
 
-<!-- <p>A month of glamorous data visualization and mapping, using the first-ever* Massachusetts-wide vehicle-miles-traveled dataset.</p> -->
-  <br/>
-  <h5>Data released <strong>January 2014</strong></h5>
-  <h5>Hackathon <strong>February 2014</strong></h5>
-</div>
-
-<div class="row padded">
-  <div class='col-sm-4'>
-    <div class="event" id="event-hackathon">
-      <h4>Hackathon</h4>
-    </div>
-  </div>
-  <div class='col-sm-4'>
-    <div class="event" id="event-month">
-      <h4>Month-Long Challenge</h4>
-    </div>
-  </div>
-  <div class='col-sm-4'>
-    <div class="event" id="event-contest">
-      <h4>Visualization Contest</h4>
-    </div>
-  </div>
+  <h4>
+    from the Metropolitan Area Planning Council
+  </h4>
 </div>
 
 <div class="row">
+  <div class="col-xs-12 col-md-8 col-md-offset-2">
 
-    <center>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <% if signed_in? %>
-      <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">
-        Download the Data
-      </button>
-      <%= render 'layouts/agreement' %>
-    <% else %>
-      <p>Sign in to download the data.</p>
-    <% end %>
+    <section id="the-challenge">
+      <h1>
+        The Challenge
+      </h1>
+      <aside>
+        A six-week challenge to find and present the patterns in 37 billion miles of data
+      </aside>
 
-    </center>
+      <p>
+        The Metropolitan Area Planning Council invites you to visualize, analyze, and otherwise hack a dataset of vehicle ownership and mileage for every car in Massachusetts, the first dataset of its kind in the country.
+      </p>
 
-</div>
+      <h3>
+        What We're Looking For
+      </h3>
 
+      <ul>
+        <li>
+          Visualizations, animations, maps, infographics, games, and any other data-driven medium that reveals patterns and uncovers insights hidden in this vast dataset.
+        </li>
+        <li>
+          Answers driving questions related to transportation, energy, land use, and policy, such as:
+          <ul>
+            <li>
+              What makes a neighborhood more likely to have high car ownership and mileage?
+            </li>
+            <li>
+              Where might investments in walking, biking and transit have the biggest impact in reducing how much people drive?
+            </li>
+            <li>
+              How much gas does the average household buy, and how is this changing over time?
+            </li>
+            <li>
+              Where does the cost of driving place the biggest burden on family budgets?
+            </li>
+            <li>
+              Do minimum parking requirements for new development match up with vehicle ownership rates in different communities?
+            </li>
+            <li>
+              What is the best way for communities to measure GHG emissions and set goals for reducing them?
+            </li>
+          </ul>
+        </li>
+      </ul>
 
-<div class="row" id="coming-soon">
-  <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+      <h3>
+        The Skills You Need
+      </h3>
+      <p>
+        Whether you're a researcher, analyst, designer, developer, philosopher, what have you -- you can participate in the challenge. All skill sets are
+      </p>
+    </section>
+    <hr/>
 
-    <h2>Event details coming January 2014.</h2>
+    <section id="the-data">
+      <h1>
+        The Data
+      </h1>
+      <aside>
+        The first dataset of its kind in the entire country
+      </aside>
 
-    <br/>
-    
-    <ul>
-      <li>Design, develop, analyze, imagine: no matter your skills, you can participate in the Data Challenge.</li>
+      <%= render 'shared/download' %>
 
-      <li>Visualize the first vehicle-miles dataset for all of Massachusetts.</li>
+      <p>
+      </p>
+    </section>
+    <hr/>
 
-      <li>Create beautiful and functional visualizations.</li>
+    <section id="datathon">
+      <h1>
+        Datathon
+      </h1>
 
-      <li>Build your skills with workshops on problem analysis, design, and development.</li>
+      <aside>
+        A day of skill-building and data visualization in Boston's Innovation District
+      </aside>
 
-      <li>Develop insights into transportation-related problems including traffic, air quality, and climate.</li>
-    </ul>
+      <p>
+        We invite you to join MAPC at District Hall for a day of skill-building and data analysis. The Datathon is an inclusive event, like a hackathon but welcoming all skill sets.
+      </p>
 
-    <p>
-      Let <a href='http://twitter.com/grandvizauto' target='_blank'>@GrandVizAuto</a> keep you updated.
-    </p>
-    
-    <p>
-      Ask questions and form teams on the <a href='https://mapc.uservoice.com/forums/236447-grand-viz-auto' target='_blank'>Grand Viz Auto UserVoice</a>.
-    </p>
+      <h3>
+        The Morning
+      </h3>
+
+      <p>
+        Our morning session series, "How to Win a Data Challenge", will feature a diverse collection of data-driven folks leading tutorials and skill-building sessions. Build your data analysis, GIS, user-oriented design, and software development in order to create even more compelling entries.
+      </p>
+
+      <p>
+        The speaker lineup will be announced soon.
+      </p>
+
+      <h3>
+        The Afternoon
+      </h3>
+
+      <p>
+        Using both long-held and newly-acquired skills, form teams and work on your submissions for the submission deadline of April 10.
+      </p>
+
+      <h3>
+        Not Your Grandfather's Hackathon
+      </h3>
+
+      <p>
+        In addition to lunch, we will provide healthy mid-day snacks and run two 30-minute yoga classes mid-afternoon, to help you recenter and refocus.
+      </p>
+
+      <p>
+      </p>
+    </section>
+    <hr/>
+
+    <section id="judges">
+      <h1>
+        The Judges
+      </h1>
+      <dl>
+        <dt>
+          Secretary Richard Davey
+        </dt>
+        <dd>
+          <img class="headshot" src="images/judges/davey.jpg"/>
+          Bio Here
+        </dd>
+
+        <dt>
+          Gabriel Florit, Boston Globe
+        </dt>
+        <dd>
+          <img class="headshot" src="images/judges/florit.jpg"/>
+          Gabriel Florit makes data visualizations for the Boston Globe. Previously, he wrote software to keep track of trains, fell 200 feet off a mountain, and got lost in Alaska for two years.
+        </dd>
+
+        <dt>
+          Jon Follett, Involution Studios
+        </dt>
+        <dd>
+          <img class="headshot" src="images/judges/follett.jpg"/>
+          Jon Follett is a principal at Involution Studios where he is a designer and an internationally published author on the topics of user experience and information design. He has created data visualizations for AstraZeneca, the Commonwealth of Massachusetts, Survey Sampling International, and many other clients. He is a father of two boys, and a classically trained pianist who dreams of one day having a family rock band.
+        </dd>
+
+        <dt>
+          Brian Lucid, Massachusetts College of Art and Design
+        </dt>
+        <dd>
+          <img class="headshot" src="images/judges/lucid.jpg"/>
+          Brian Lucid is a Professor of Design at the Massachusetts College of Art and Design. He teaches information design, data visualization and creative coding with a focus on making the complex clear. Lucid really is his last name.
+        </dd>
+
+        <dt>
+          Stephanie Pollack
+        </dt>
+        <dd>
+          <img class="headshot" src="images/judges/pollack.jpg"/>
+          Bio Here
+        </dd>
+
+        <dt>
+          Tim Reardon, MAPC
+        </dt>
+        <dd>
+          <img class="headshot" src="images/judges/reardon.jpg"/>
+          Tim Reardon is Assistant Director of Data Services at MAPC, where he oversees the agency’s research activities, development of new datasets, and novel applications of data to local and regional planning. He lives in zip code 02119 where his family’s vehicles include four bicycles and a 2005 Toyota Matrix that is driven an average of 15 miles per day. 
+        </dd>
+      </dl>
+    </section>
+    <hr/>
 
   </div>
 </div>

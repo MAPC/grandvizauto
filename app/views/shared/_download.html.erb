@@ -1,0 +1,12 @@
+<div class="row download-data">
+  <% if signed_in? %>
+    <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">
+      Download the Data
+    </button>
+    <%= render 'layouts/agreement' %>
+  <% else %>
+    <p>
+      Sign in to download the data.
+    </p>
+  <% end %>
+</div>

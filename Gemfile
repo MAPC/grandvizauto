@@ -14,6 +14,7 @@ gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
 
 gem 'kaminari', '~> 0.15.0'
+gem 'kaminari-bootstrap', '~> 3.0.1'
 
 gem 'aws-sdk'
 gem 'paperclip', '~> 3.0'

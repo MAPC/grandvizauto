@@ -1,4 +1,8 @@
 <h1>Submissions#index</h1>
 <%= render @submissions %>
 
-<%= paginate @submissions %>
+<div class="row">
+  <div class="col-xs-12 paginate">
+    <%= paginate @submissions %>
+  </div>
+</div>
