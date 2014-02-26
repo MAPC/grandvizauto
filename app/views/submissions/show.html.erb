@@ -1,0 +1,57 @@
+<h3>Submission</h3>
+<h1><%= @submission.title %></h1>
+<p>
+  <%= @submission.description %>
+</p>
+
+<%= link_to 'Previous', submission_path(@submission.prev) if @submission.prev %>
+<%= link_to 'Next',     submission_path(@submission.next) if @submission.next %>
+
+<% if signed_in? && !current_user?(@submission.user) %>
+  <p>Average rating</p>
+  <div id="average-rating"></div>
+
+  <p>Rate this entry!</p>
+  <div id="user-rating"></div>
+  
+<% end %>
+
+<a href="https://twitter.com/share" data-text="Check out this great visualization by <%= @submission.user_name %>!" data-url="http://127.0.0.1:3000<%= submission_path(@submission) %>" data-via="GrandVizAuto" class="twitter-share-button" data-lang="en">Tweet</a>
+
+<div class="fb-share-button" data-href="http://127.0.0.1:3000<%= submission_path(@submission) %>" data-type="button_count"></div>
+
+<script>
+
+$(document).on('ready', function () {
+
+  $('#average-rating').raty({
+    readOnly: true,
+    score: <%= @submission.average_rating %>,
+    path: '/assets'
+  });
+
+  $('#user-rating').raty({
+    score: '<%= @rating.score %>',
+    path: '/assets',
+    click: function(score, evt) {
+      $.ajax({
+        <% if @rating.score == 0 %>
+        url: '/ratings/',
+        type: 'POST',
+        data: { rating: {
+                  user_id: <%= current_user.id %>,
+                  submission_id: <%= @submission.id %>,
+                  score: score }
+              }
+        <% else %>
+        url: '/ratings/' + <%= @rating.id %>,
+        type: 'PUT',
+        data: { score: score }
+        <% end %>
+      });
+    }
+  });
+
+})
+
+</script>

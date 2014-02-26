@@ -1,31 +1,61 @@
-Grand Viz Auto
-==============
+# Grand Viz Auto
 
-_A month of glamorous data visualization and mapping, using the first-ever Massachusetts-wide vehicle-miles traveled dataset._
+Features
 
-
-
-For the moment
-------------------------------
-
-It's just a static page.
++ Download the data
++ Submit entries
++ Rate submissions (via Raty)
++ OAuth-only login (Github, Facebook, Twitter, Google)
 
 
-Soon
-------------------------------
+## Set up the development environment
 
-There will be an API that serves out vehicle-miles traveled data and more.
+Clone the repository.
+
+`git clone git@github.com:MAPC/grandvizauto.git`
+
+CD into the repository
+
+`cd grandvizauto`
+
+If you have RVM, create a new gemset.
+
+`rvm gemset use grandvizauto --create`
+
+Install the gems
+
+`bundle install`
+
+Set up the database
+
+```sh
+rake db:setup
+rake db:migrate
+rake db:seed    # loads sample data into the database
+rake db:test:prepare
+```
+
+If you want, run the tests to make sure everything is working.
+
+`rspec`
 
 
-Getting Set Up for Development
-------------------------------
-
-We will include a Vagrantfile which you can use on any operating system to automatically install all of the dependencies. That way, you can be up and running (and forking) within minutes.
+To get the site running, run `rails server` or `rails s` for short
 
 
 
-1. Download [Vagrant][dl].
-2. Work through the [Getting Started][gs] guide until you can set up an empty precise32 box.
+## Getting access to everything
 
-[dl]: http://www.vagrantup.com/downloads.html
-[gs]: http://docs.vagrantup.com/v2/getting-started/
+While the server is running, log in using your Github, Facebook, Twitter, or Google Accounts.
+
+Quit the server once you've logged in, using `Control+C` aka `^C`.
+
+Start the Rails console: `rails c`.
+
+Make yourself an admin user by running:
+
+```ruby
+  User.last.update_attribute(:admin, true)
+```
+
+Quit the console by entering `quit`, then start the server back up to run the site (`rails s`).
