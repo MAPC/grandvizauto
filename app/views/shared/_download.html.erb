@@ -1,14 +1,16 @@
 <div class="row download-data">
-  <% if signed_in? %>
-    <div class="data-button">
-      <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">
-        Download the Data
-      </button>
-    </div>
-    <%= render 'layouts/agreement' %>
-  <% else %>
-    <p>
-      Sign in to download the data.
-    </p>
-  <% end %>
+  <div class="col-xs-12">
+    <% if signed_in? %>
+      <div class="data-button">
+        <button class="btn btn-success btn-lg" id="download-button" data-toggle="modal" data-target="#myModal">
+          Download the Data
+        </button>
+      </div>
+      <%= render 'layouts/agreement' %>
+    <% else %>
+      <p>
+        <a href="#top">Sign in above</a> to download the data.
+      </p>
+    <% end %>
+  </div>
 </div>
