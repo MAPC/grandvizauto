@@ -1,4 +1,11 @@
-<h1>Submissions#index</h1>
-<%= render @submissions %>
+<h1 class="page-header">All Submissions</h1>
 
-<%= paginate @submissions %>
+<ul class="submissions">
+  <%= render @submissions %>
+</ul>
+
+<div class="row">
+  <div class="col-xs-12 paginate">
+    <%= paginate @submissions %>
+  </div>
+</div>

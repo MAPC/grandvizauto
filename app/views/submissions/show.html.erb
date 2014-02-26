@@ -1,24 +1,70 @@
-<h3>Submission</h3>
-<h1><%= @submission.title %></h1>
+
+<div class="jumbotron submission" style="background-image: url(<%= local_path_for(@submission) %>)">
+</div>
+
+<h1 class="page-header"><%= @submission.title %></h1>
+
+<div class="row">
+<div class="col-md-8">
+
+<p>
+  by 
+  <span class="author">
+    <%= link_to @submission.user_name, user_path(@submission.user) %>
+  </span>  
+</p>
+
 <p>
   <%= @submission.description %>
 </p>
 
-<%= link_to 'Previous', submission_path(@submission.prev) if @submission.prev %>
-<%= link_to 'Next',     submission_path(@submission.next) if @submission.next %>
+</div>
 
-<% if signed_in? && !current_user?(@submission.user) %>
-  <p>Average rating</p>
-  <div id="average-rating"></div>
 
-  <p>Rate this entry!</p>
-  <div id="user-rating"></div>
-  
-<% end %>
+<div class="col-md-4">
 
-<a href="https://twitter.com/share" data-text="Check out this great visualization by <%= @submission.user_name %>!" data-url="http://127.0.0.1:3000<%= submission_path(@submission) %>" data-via="GrandVizAuto" class="twitter-share-button" data-lang="en">Tweet</a>
+  <div class="row next-prev">
+    <div class="col-md-4" id="prev">
+      <%= link_to 'Previous', submission_path(@submission.prev) if @submission.prev %>
+    </div>
+    <div class="col-md-4" id="next">
+      <%= link_to 'Next',     submission_path(@submission.next) if @submission.next %>
+    </div>
+  </div>
 
-<div class="fb-share-button" data-href="http://127.0.0.1:3000<%= submission_path(@submission) %>" data-type="button_count"></div>
+  <% if signed_in? && !current_user?(@submission.user) %>
+    <div class="row rating">
+      <div class="col-md-8">
+        <p class="rating">
+          Rate this entry!
+        </p>
+        <div class="rating" id="user-rating" style="background-image: url()"></div>
+      </div>
+    </div>
+
+    <div class="row rating">
+      <div class="col-md-8">
+        <p class="rating">
+          Average rating
+        </p>
+        <div class="rating" id="average-rating" style="background-image: url()"></div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="row social">
+    <div class="col-md-8">
+      <div class="share">
+        <a href="https://twitter.com/share" data-text="Check out this great visualization by <%= @submission.user_name %>!" data-url="http://127.0.0.1:3000<%= submission_path(@submission) %>" data-via="GrandVizAuto" class="twitter-share-button" data-lang="en">Tweet</a>
+      </div>
+
+      <div class="share">
+        <div class="fb-share-button" data-href="http://127.0.0.1:3000<%= submission_path(@submission) %>" data-type="button_count"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
 
 <script>
 
