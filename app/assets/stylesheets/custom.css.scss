@@ -2,6 +2,7 @@ $background-dark: #171713;
 
 html, body {
   background-color: $background-dark !important;
+  overflow-x: hidden;
 }
 
 .container {
