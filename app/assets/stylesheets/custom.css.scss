@@ -262,30 +262,8 @@ div.rating {
   }
 }
 
-// .jumbotron h1 {
-//   font-family: Helvetica;
-//   font-size: 90px;
-//   color: #FFFFFF;
-//   text-shadow: 
-//     -9px -9px 0 black,
-//      9px -9px 0 black,
-//     -9px  9px 0 black,
-//      9px  9px 0 black,
-//     -9px  0px 0 black,
-//      9px  0px 0 black,
-//      0px  9px 0 black,
-//      0px  9px 0 black;
-// }
 
-// .jumbotron p {
-//   color: #EEE;
-// }
-
-// #event-hackathon { 
-//   background: url(/images/hackathon-sm.jpg) no-repeat center center;
-// }
-
-// .footer {
+.footer {
 
 //   border-top: 3px #EEE solid;
 //   text-align: center;
@@ -294,10 +272,14 @@ div.rating {
 //   height: 150px;
 //   clear:both;
 //   padding-top:20px;
-// }
-
-// .footer img {
-//   position: relative;
-//   max-width: 100%;
-//   max-height: 100px;
-// }
+  text-align: center;
+  .row { padding: 10px 0 }
+ img {
+    // position: relative;
+    max-width: 100%;
+    max-height: 70px;
+  }
+  img.primary {
+    max-height: 140px;
+  }
+}
