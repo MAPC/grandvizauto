@@ -1,4 +1,8 @@
 $background-dark: #171713;
+$sky-blue:        #4B99DD;
+$dusty-yellow:    #E1BC9C;
+$sunset-pink:     #C98568;
+
 
 html, body {
   background-color: $background-dark !important;
@@ -19,18 +23,18 @@ h1, h2, h3, h4, h5, h6 {
   padding: 30px 0;
   line-height: 1.25em;
   font-family: 'Voces';
-  text-shadow: 0px  -4px 8px #4B99DD,
-              -2px   0px 4px #E1BC9C,
-               0px   4px 8px #C98568;
+  text-shadow: 0px  -4px 8px $sky-blue,
+              -2px   0px 4px $dusty-yellow,
+               0px   4px 8px $sunset-pink;
   text-align: center;
   letter-spacing: 1px;
 }
 
 #download-button {
-  box-shadow: 0px -4px 8px #4B99DD,
-               -4px  0px 8px #E1BC9C,
-               4px  0px 8px #E1BC9C,
-               0px  4px 8px #C98568;
+  box-shadow: 0px -4px 8px $sky-blue,
+               -4px  0px 8px $dusty-yellow,
+               4px  0px 8px $dusty-yellow,
+               0px  4px 8px $sunset-pink;
   margin: 30px 0;
 }
 
@@ -50,7 +54,35 @@ h5 { font-size: 1.25em; }
 
 h6 { font-size: 1em;    }
 
+.alert {
+  font-family: Voces, "Times New Roman", Times;
+  font-size: 1.25em;
+  color: $background-dark;
+}
+
+.alert-success { 
+  background-color: $sky-blue;
+}
+
+.alert-notice { 
+  background-color: $dusty-yellow;
+}
+
+.alert-error {
+  background-color: $sunset-pink;
+}
+
 .container {
+  .name h1 {
+    text-align: right;
+  }
+  .email { 
+    position: relative;
+    top: 26px;
+    h4 {
+      text-align: left;
+      }
+    }
 
   li, p {
     margin: 0 0 0.75em;
@@ -58,6 +90,22 @@ h6 { font-size: 1em;    }
     line-height: 1.75em;
     font-family: Voces, Cambria, "Times New Roman", Times, serif;
     text-shadow: 1px 1px 1px #000;
+  }
+
+  p {
+    a {
+      color: #EEE;
+      text-shadow: 0px -4px 8px $sky-blue,
+                   0px  4px 8px $sky-blue;
+      text-decoration: underline;
+      
+      &:hover {
+        color: #FFF;
+        text-shadow: 0px -4px 8px $sunset-pink,
+                     0px  4px 8px $sunset-pink;
+        text-decoration: none;
+      }
+    }
   }
 
   ul {
@@ -189,7 +237,8 @@ div.rating {
   text-align: center;
   min-height: 20em;
   padding-top: 90px;
-  background: url(/images/zakim-md.jpg) no-repeat center center;
+  background: url(/images/37-billion.jpg) no-repeat center center;
+  // background: url(/images/zakim-md.jpg) no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -248,6 +297,7 @@ div.rating {
       background-color: rgba(255, 255, 255, 0.8);
       width: 100%;
       text-align: center;
+      margin-bottom: 30px;
     }
   }
 }
@@ -288,6 +338,12 @@ span.fill {
     opacity: 0.7;
   }
 
+}
+
+input.form-control, textarea.form-control { 
+  background-color: #CCC;
+  font-size: 1.25em;
+  font-family: Voces, "Times New Roman", Times
 }
 
 .footer {

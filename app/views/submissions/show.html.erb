@@ -22,6 +22,12 @@
     <%= link_to @submission.url, @submission.url, target: "_blank" %>
   </p>
 
+  <% if current_user?(@submission.user) %>
+    <p>
+      <%= link_to 'Edit', edit_submission_path(@submission), class: 'button btn-lg btn-warning' %>
+    </p>
+  <% end %>
+
 </div>
 
 

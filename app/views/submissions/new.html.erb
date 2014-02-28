@@ -41,6 +41,15 @@
       <div class="form-group">
         <%= f.submit 'Submit', class: "btn btn-lg btn-default" %>
       </div>
+
+      <% if @submission.id %>
+        <div class="form-group">
+          <%= link_to 'Delete', @submission, method: :delete,
+                       data: { confirm: "Are you sure? You cannot reverse this decision." },
+                       class: "btn btn-lg btn-danger" %>
+        </div>
+      <% end %>
+
     <% end %>
   </div>
 </div>

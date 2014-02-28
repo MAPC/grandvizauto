@@ -32,7 +32,7 @@ class SubmissionsController < ApplicationController
     @submission.user = current_user
 
     if @submission.save
-      flash[:notice] = "Your entry will be viewable once we review & approve it, within three days. Add an email to your user profile to be notified of approval/rejection."
+      flash[:success] = "Your entry will be viewable once we review & approve it, within three days. Add an email to your user profile to be notified of approval/rejection."
       redirect_to user_path(current_user)
     else
       flash[:error] = "Invalid submission. Check errors."
@@ -45,12 +45,18 @@ class SubmissionsController < ApplicationController
     @submission.update_attributes(params[:submission])
 
     if @submission.save
-      flash[:notice] = "You edited your submission #{@submission.title}."
+      flash[:success] = "You edited your submission #{@submission.title}."
       redirect_to submission_path(@submission)
     else
       flash[:error] = "Invalid edits. Check errors."
       render 'new'
     end
+  end
+
+  def destroy
+    Submission.find(params[:id]).destroy
+    flash[:success] = "Deleted submission."
+    redirect_to current_user
   end
 
   private
@@ -62,7 +68,7 @@ class SubmissionsController < ApplicationController
     def correct_user
       @submission = Submission.find params[:id]
       # puts "@user: #{@user.name} (#{@user.id}) | current_user: #{current_user.name} (#{current_user.id})"
-      redirect_to root_url, notice: "You cannot edit another user's submission." unless current_user?(@submission.user)
+      redirect_to root_url, error: "You cannot edit another user's submission." unless current_user?(@submission.user)
     end
 
 end

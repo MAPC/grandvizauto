@@ -158,6 +158,10 @@ describe "Submission pages" do
           it { should have_selector('h1', text: "Surely Another Valid Title") }
         end
       end
+
+      describe "deleting links" do
+        it { should_not have_link('Delete') }
+      end
     end
 
     describe "editing the wrong submission" do
