@@ -12,7 +12,6 @@ describe "Submission pages" do
 
     before { visit submission_path(submission) }
     
-    it { should have_selector('h3', text: 'Submission') }
     it { should have_selector('h1', text: submission.title) }
     it { should have_content submission.description }
     it { should have_link('Next') }
@@ -115,8 +114,8 @@ describe "Submission pages" do
 
           describe "after submitting" do
             before { click_button submit }
-            it { should have_content "will be viewable" }
-            it { should have_selector('h1', text: '37 Billion Miles') } # tests we've gone back to '/'
+            it { should have_content "will be viewable" ; save_and_open_page }
+            # it { should have_selector('h1', text: user.name) }
           end
         end
 
@@ -138,8 +137,12 @@ describe "Submission pages" do
     end
 
     describe "editing a submission" do
-      let(:submission) { FactoryGirl.create(:submission, title: "Edit Me, I'm a Submission!") }
-      before { visit edit_submission_path( submission ) }
+      let(:submission) { FactoryGirl.create(:submission, title: "Edit Me, I'm a Submission!", user: user) }
+      
+      before do
+        visit edit_submission_path( submission )
+        save_and_open_page
+      end
 
       it { should_not have_content "Agree" }
 
@@ -152,14 +155,19 @@ describe "Submission pages" do
 
         describe "redirects to submission show page" do
           before { click_button submit }
-          it { should have_selector('h3', text: 'Submission') }
           it { should have_selector('h1', text: "Surely Another Valid Title") }
         end
       end
     end
 
-    pending "editing someone else's submission" do
+    describe "editing the wrong submission" do
+      let(:wrong_user)       { FactoryGirl.create(:user, name: "Dr. Cox") }
+      let(:wrong_submission) { FactoryGirl.create(:submission, title: "Wrong Wrong Wrong Wrong", user: wrong_user) }
+      before { visit edit_submission_path( wrong_submission ) }
+      it { should have_content "cannot edit another user's submission" }
+      it { should have_selector('h1', text: "37 Billion Miles") }
     end
+
     
   end
 

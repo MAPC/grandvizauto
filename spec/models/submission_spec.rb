@@ -6,7 +6,8 @@ describe Submission do
                                         description: "it ain't b/c i'm ugly, because i couldn't rise, couldn't start a company, make money, couldn't make it. but because i want to dismantle it.",
                                         url: "http://agoodsite.net",
                                         screenshot: mock_file,
-                                        agreed: true) }
+                                        agreed: true,
+                                        user: FactoryGirl.create(:user) ) }
 
   subject { @submission }
 
@@ -23,6 +24,8 @@ describe Submission do
 
   it { should respond_to :file }
   it { should respond_to :screenshot }
+
+  it { should respond_to :user }
 
   it { should be_valid }
 
@@ -76,6 +79,11 @@ describe Submission do
     it { should_not be_valid }
   end
 
+  describe "without a user" do
+    before { @submission.user = nil }
+    it { should_not be_valid }
+  end
+
   describe "must have one of URL or file" do
 
     describe "without a file and without a url" do
@@ -106,8 +114,8 @@ describe Submission do
     
     before { @submission.save }
 
-    let!(:second) { FactoryGirl.create(:submission) }
-    let!(:third)  { FactoryGirl.create(:submission) }
+    let!(:second) { FactoryGirl.create(:submission, user: FactoryGirl.create(:user) ) }
+    let!(:third)  { FactoryGirl.create(:submission, user: FactoryGirl.create(:user) ) }
     
     describe "skip blank ids" do
       before { second.destroy }

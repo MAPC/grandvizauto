@@ -1,5 +1,6 @@
 class SubmissionsController < ApplicationController
   before_filter :signed_in_user, except: [:index, :show]
+  before_filter :correct_user,   only:   [:edit,  :update]
 
 
   def index
@@ -28,10 +29,11 @@ class SubmissionsController < ApplicationController
 
   def create
     @submission = Submission.new(params[:submission])
+    @submission.user = current_user
 
     if @submission.save
       flash[:notice] = "Your entry will be viewable once we review & approve it, within three days. Add an email to your user profile to be notified of approval/rejection."
-      redirect_to root_path
+      redirect_to user_path(current_user)
     else
       flash[:error] = "Invalid submission. Check errors."
       render 'new'
@@ -55,6 +57,12 @@ class SubmissionsController < ApplicationController
 
     def signed_in_user
       redirect_to root_url, notice: "You must be signed in to submit or edit an entry." unless signed_in?
+    end
+
+    def correct_user
+      @submission = Submission.find params[:id]
+      # puts "@user: #{@user.name} (#{@user.id}) | current_user: #{current_user.name} (#{current_user.id})"
+      redirect_to root_url, notice: "You cannot edit another user's submission." unless current_user?(@submission.user)
     end
 
 end
