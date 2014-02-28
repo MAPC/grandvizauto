@@ -1,8 +1,53 @@
-<h1><%= @user.name %></h1>
+<div class="row">
+  <div class="col-xs-12 col-md-4">
+    <h1><%= @user.name %></h1>
+  </div>
+
 
 <% if current_user?(@user) %>
-  <h3>
-    <%= @user.email %>
-  </h3>
+  <% if @user.email? %>
+    
+      <div class="col-xs-12 col-md-6">
+        <p>
+          <%= @user.email %>
+        </p>
+      </div>
+    </div>
+
+  <% else %>
+
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-6 col-md-offset-3">
+        <p>
+          <%= link_to 'Add an email address to your account', edit_user_path(@user) %> so we can contact you if there are important changes to the data or deadlines. We will not give your email address to anyone for any purpose other than contacting you about this data challenge.
+        </p>
+      </div>
+    </div>
+
+  <% end %>
+<% else %>
+  </div>
 <% end %>
-<%= render partial: 'submission', collection: @user.submissions %>
+
+<div class="row">
+  <% if @user.has_submissions? %>
+    <div class="col-xs-12">
+      <ul class="submissions">
+        <%= render partial: 'submissions/submission', collection: @user.submissions %>
+      </ul>
+    </div>
+  <% elsif !@user.has_submissions? && current_user?(@user) %>
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <!-- <p>
+        You have no entries. <%= link_to 'Submit a new entry!', new_submission_path %>
+      </p> -->
+    </div>
+  <% else %>
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <p>
+        This user has not yet submitted an entry.
+      </p>
+    </div>
+  <% end %>
+</div>

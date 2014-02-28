@@ -7,16 +7,20 @@
 <div class="row">
 <div class="col-md-8">
 
-<p>
-  by 
-  <span class="author">
-    <%= link_to @submission.user_name, user_path(@submission.user) %>
-  </span>  
-</p>
+  <p>
+    by 
+    <span class="author">
+      <%= link_to @submission.user_name, user_path(@submission.user) %>
+    </span>  
+  </p>
 
-<p>
-  <%= @submission.description %>
-</p>
+  <p>
+    <%= @submission.description %>
+  </p>
+
+  <p>
+    <%= link_to @submission.url, @submission.url, target: "_blank" %>
+  </p>
 
 </div>
 
@@ -24,12 +28,33 @@
 <div class="col-md-4">
 
   <div class="row next-prev">
+
     <div class="col-md-4" id="prev">
-      <%= link_to 'Previous', submission_path(@submission.prev) if @submission.prev %>
+      <% if @submission.prev %>   
+        <%= link_to(submission_path(@submission.prev)) do %>
+          <span class="fill">
+            <%= image_tag local_path_for(@submission.prev) %>
+            <p>
+              Previous
+            </p>
+          </span>
+        <% end %>
+      <% end %>
     </div>
+
     <div class="col-md-4" id="next">
-      <%= link_to 'Next',     submission_path(@submission.next) if @submission.next %>
+      <% if @submission.next %>   
+        <%= link_to(submission_path(@submission.next)) do %>
+          <span class="fill">
+            <%= image_tag local_path_for(@submission.next) %>
+            <p>
+              Next
+            </p>
+          </span>
+        <% end %>
+      <% end %>
     </div>
+
   </div>
 
   <% if signed_in? && !current_user?(@submission.user) %>
@@ -38,7 +63,7 @@
         <p class="rating">
           Rate this entry!
         </p>
-        <div class="rating" id="user-rating" style="background-image: url()"></div>
+        <div class="rating" id="user-rating"></div>
       </div>
     </div>
 
@@ -47,7 +72,7 @@
         <p class="rating">
           Average rating
         </p>
-        <div class="rating" id="average-rating" style="background-image: url()"></div>
+        <div class="rating" id="average-rating"></div>
       </div>
     </div>
   <% end %>

@@ -1,16 +1,22 @@
 <h1>Edit your profile</h1>
 
-<%= form_for @user, html: { role: "form" } do |f| %>
+<div class="row">
+  <div class="col-xs-12 col-md-4 col-md-offset-4">
+    <%= form_for @user, html: { role: "form" } do |f| %>
 
-  <div class="form-group">
-    <%= f.label :name, 'Name' %>
-    <%= f.text_field :name, class: "form-control" %>
+      <div class="form-group">
+        <%= f.label :name, 'Name' %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :email, 'Email' %>
+        <%= f.text_field :email, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.submit 'Update', class: "btn btn-default" %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="form-group">
-    <%= f.label :email, 'Email' %>
-    <%= f.text_field :email, class: "form-control" %>
-  </div>
-
-  <%= f.submit 'Update', class: "btn btn-default" %>
-<% end %>
+</div>

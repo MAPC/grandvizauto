@@ -116,7 +116,7 @@ describe "Submission pages" do
           describe "after submitting" do
             before { click_button submit }
             it { should have_content "will be viewable" }
-            it { should have_selector('h1', text: 'Grand Viz Auto') } # tests we've gone back to '/'
+            it { should have_selector('h1', text: '37 Billion Miles') } # tests we've gone back to '/'
           end
         end
 
@@ -156,6 +156,9 @@ describe "Submission pages" do
           it { should have_selector('h1', text: "Surely Another Valid Title") }
         end
       end
+    end
+
+    pending "editing someone else's submission" do
     end
     
   end

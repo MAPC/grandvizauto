@@ -82,7 +82,7 @@ h6 { font-size: 1em;    }
 
 aside {
   font-size: 1.5em;
-  font-weight: 100;
+  font-weight: 200;
   text-align: center;
   padding-bottom: 45px;
   margin-top: -10px;
@@ -178,13 +178,9 @@ div.rating {
 }
 
 .next-prev div {
-  background-color: #EDE;
   text-align: center;
   min-height: 60px;
   padding-top: 20px;
-  &:hover {
-    background-color: #ACA;
-  }
 }
 
 
@@ -263,6 +259,36 @@ div.rating {
   }
 }
 
+#next { position: relative; }
+#prev { position: relative; }
+
+span.fill {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.7;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  p { 
+    position: relative;
+    top: 13px;
+  }
+
+  img {
+    position: absolute;
+    left: 0;
+    max-width: 100%;
+    max-height: 100%;
+    opacity: 0.7;
+  }
+
+}
 
 .footer {
 

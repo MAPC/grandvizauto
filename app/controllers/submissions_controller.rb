@@ -52,7 +52,7 @@ class SubmissionsController < ApplicationController
   private
 
     def signed_in_user
-      redirect_to root_url, notice: "You must be signed in to submit or edit a submission." unless signed_in?
+      redirect_to root_url, notice: "You must be signed in to submit or edit an entry." unless signed_in?
     end
 
 end

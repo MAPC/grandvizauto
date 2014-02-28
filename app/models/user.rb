@@ -12,9 +12,9 @@ class User < ActiveRecord::Base
   def self.create_with_omniauth(auth)
     create! do |user|
       user.provider = auth["provider"]
-      user.uid   = auth["uid"]
-      user.name  = auth["info"]["name"]
-      user.email = auth["info"]["email"] if auth["info"]["email"]
+      user.uid      = auth["uid"]
+      user.name     = auth["info"]["name"]
+      user.email    = auth["info"]["email"] if auth["info"]["email"]
     end
   end
 
@@ -24,6 +24,10 @@ class User < ActiveRecord::Base
 
   def judge?
     judge
+  end
+
+  def has_submissions?
+    submissions.length > 0
   end
 
 end

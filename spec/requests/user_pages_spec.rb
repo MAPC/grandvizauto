@@ -12,8 +12,8 @@ describe "User pages" do
 
   pending "user edit page" do
     before do
-      save_and_open_page
       visit edit_user_path(user)
+      save_and_open_page
     end
 
     it { should have_selector('label', text: 'Name') }

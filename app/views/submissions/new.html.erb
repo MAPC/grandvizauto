@@ -1,39 +1,46 @@
 <h1>Submit your work!</h1>
 
-<%= form_for @submission, html: { role: "form" } do |f| %>
-  
-  <%= render partial: 'shared/error_messages', locals: { submission: @submission } %>
-  
-  <div class="form-group">
-    <%= f.label :title, 'Title' %>
-    <%= f.text_field :title, class: "form-control" %>
+<div class="row">
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
+    <%= form_for @submission, html: { role: "form" } do |f| %>
+      
+      <%= render partial: 'shared/error_messages', locals: { submission: @submission } %>
+      
+      <div class="form-group">
+        <%= f.label :title, 'Title' %>
+        <%= f.text_field :title, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :description, 'Description' %>
+        <%= f.text_area :description, class: "form-control", rows: 6 %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :url, 'URL' %>
+        <%= f.text_field :url, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :screenshot, 'Attach a screenshot' %>
+        <%= f.file_field :screenshot %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :file, 'Upload a file' %>
+        <%= f.file_field :file %>
+      </div>
+
+      <% unless @submission.agreed? %>
+        <div class="form-group">
+          <%= f.label :agreed, 'Agree to the terms' %>
+          <%= f.check_box(:agreed) %>
+        </div>
+      <% end %>
+      
+      <div class="form-group">
+        <%= f.submit 'Submit', class: "btn btn-lg btn-default" %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="form-group">
-    <%= f.label :description, 'Description' %>
-    <%= f.text_field :description, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :url, 'URL' %>
-    <%= f.text_field :url, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :screenshot, 'Attach a screenshot' %>
-    <%= f.file_field :screenshot %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :file, 'Upload a file' %>
-    <%= f.file_field :file %>
-  </div>
-
-  <% unless @submission.agreed? %>
-    <%= f.label :agreed, 'Agree to the terms' %>
-    <%= f.check_box(:agreed) %>
-  <% end %>
-  
-
-  <%= f.submit 'Submit', class: "btn btn-lg btn-default" %>
-<% end %>
+</div>
