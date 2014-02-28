@@ -9,7 +9,9 @@ class SubmissionsController < ApplicationController
 
   def show
     @submission = Submission.find params[:id]
-    @rating     = Rating.where(user_id: current_user.id, submission_id: @submission.id).first || Rating.new(user: current_user, submission: @submission, score: 0)
+    if signed_in?
+      @rating     = Rating.where(user_id: current_user.id, submission_id: @submission.id).first || Rating.new(user: current_user, submission: @submission, score: 0)
+    end
   end
 
 

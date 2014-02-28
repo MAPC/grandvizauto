@@ -66,16 +66,17 @@
         <div class="rating" id="user-rating"></div>
       </div>
     </div>
-
-    <div class="row rating">
-      <div class="col-md-8">
-        <p class="rating">
-          Average rating
-        </p>
-        <div class="rating" id="average-rating"></div>
-      </div>
-    </div>
   <% end %>
+
+  <div class="row rating">
+    <div class="col-md-8">
+      <p class="rating">
+        Average rating
+      </p>
+      <div class="rating" id="average-rating"></div>
+    </div>
+  </div>
+
 
   <div class="row social">
     <div class="col-md-8">
@@ -101,28 +102,31 @@ $(document).on('ready', function () {
     path: '/assets'
   });
 
-  $('#user-rating').raty({
-    score: '<%= @rating.score %>',
-    path: '/assets',
-    click: function(score, evt) {
-      $.ajax({
-        <% if @rating.score == 0 %>
-        url: '/ratings/',
-        type: 'POST',
-        data: { rating: {
-                  user_id: <%= current_user.id %>,
-                  submission_id: <%= @submission.id %>,
-                  score: score }
-              }
-        <% else %>
-        url: '/ratings/' + <%= @rating.id %>,
-        type: 'PUT',
-        data: { score: score }
-        <% end %>
-      });
-    }
-  });
+  <% if signed_in? && !current_user?(@submission.user) %>
 
-})
+    $('#user-rating').raty({
+      score: '<%= @rating.score %>',
+      path: '/assets',
+      click: function(score, evt) {
+        $.ajax({
+          <% if @rating.score == 0 %>
+          url: '/ratings/',
+          type: 'POST',
+          data: { rating: {
+                    user_id: <%= current_user.id %>,
+                    submission_id: <%= @submission.id %>,
+                    score: score }
+                }
+          <% else %>
+          url: '/ratings/' + <%= @rating.id %>,
+          type: 'PUT',
+          data: { score: score }
+          <% end %>
+        });
+      }
+    });
+  <% end %>
+
+  })
 
 </script>
