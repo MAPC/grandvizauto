@@ -33,7 +33,7 @@
 
       <% unless @submission.agreed? && @submission.id %>
         <div class="form-group">
-          <%= f.label :agreed, 'Agree to the terms' %>
+          <%= f.label :agreed, 'Agree to the <a class="terms" data-toggle="modal" data-target="#terms">terms</a>'.html_safe %>
           <%= f.check_box(:agreed) %>
         </div>
       <% end %>
@@ -51,5 +51,6 @@
       <% end %>
 
     <% end %>
+    <%= render 'submissions/terms' %>
   </div>
 </div>

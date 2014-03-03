@@ -1,0 +1,30 @@
+<div class="modal fade" id="terms" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel"></h4>
+      </div>
+      <div class="modal-body">
+        <h3>You must agree to these terms to submit an entry to the data challenge.</h3>
+        <h1>Contest Rules</h1>
+        <p>
+          The 37 Billion Mile Data Challenge (the “Challenge”) is open to any person who is at least eighteen (18) years of age at the time of entry. Employees of the Metropolitan Area Planning Council (“MAPC”), the Massachusetts Department of Transportation (“MassDOT”), the Massachusetts Technology Collaborative (“MassTech”), and other sponsoring organizations of this Challenge, and their subsidiaries and affiliates, as well as the immediate family members (spouse, parents, children and siblings) and household members of each such employee are not eligible to participate.
+        </p>
+        <p>
+          The contest opens on March 3, 2014.  Entries should be received at the MAPC offices, located at 60 Temple Place, Boston, MA 02111 by 5:00 p.m, on Thursday, April 10th, 2014 or submitted online at www.37billionmilechallenge.org by 11:59 p.m. EST on Thursday April 10th, 2014.
+        </p>
+        <p>
+          Entrants agree to grant to MAPC, MassDOT, and MassTech the royalty-free and non-exclusive right to use, distribute, reproduce, modify, adapt and publicly display the entrants’ submissions for any or all uses.
+        </p>
+        <p>
+          Entrants agree to release and hold harmless the MAPC and all of its officers, agents and employees, and those of any other agencies or companies that are associated with the creation, promotion, and execution of this Challenge, against all suits, claims, demands and liabilities of every name and nature, both at law and in equity, based upon or arising out of participation in the Challenge or receipt of use of the prize.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">I do not agree.</button>
+        <%= link_to "I have read and agree to these terms.", '/agree', class: 'btn btn-primary' %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -2,11 +2,11 @@
   <div class="col-xs-12">
     <% if signed_in? %>
       <div class="data-button">
-        <button class="btn btn-success btn-lg" id="download-button" data-toggle="modal" data-target="#myModal">
+        <button class="btn btn-success btn-lg" id="download-button" data-toggle="modal" data-target="#agreement">
           Download the Data
         </button>
       </div>
-      <%= render 'layouts/agreement' %>
+      <%= render 'static_pages/agreement' %>
     <% else %>
       <p>
         <a href="#top">Sign in above</a> to download the data.
