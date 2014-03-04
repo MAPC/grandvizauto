@@ -237,12 +237,19 @@ div.rating {
   text-align: center;
   min-height: 20em;
   padding-top: 90px;
-  background: url(/images/37-billion.jpg) no-repeat center center;
+  background: url(/images/37-billion-starry.jpg) no-repeat center center;
   // background: url(/images/zakim-md.jpg) no-repeat center center;
-  // -webkit-background-size: cover;
-  // -moz-background-size: cover;
-  // -o-background-size: cover;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
   background-size: contain;
+
+  @media screen and (max-width: 550px) {
+    margin-top:    -100px;
+    max-height:     10em;
+    margin-bottom: -120px;
+  }
+
 
   h1, h2, h3, h4, h5, h6 {
     color: #FFF !important;
