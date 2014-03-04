@@ -54,7 +54,7 @@ describe User do
       user_with_same_email.save
     end
 
-    it { should_not be_valid }
+    it { should be_valid }
   end
   
 end
