@@ -63,16 +63,20 @@
 
   </div>
 
-  <% if signed_in? && !current_user?(@submission.user) %>
-    <div class="row rating">
-      <div class="col-md-8">
+  <div class="row rating">
+    <div class="col-md-8">
+      <% if signed_in? && !current_user?(@submission.user) %>
         <p class="rating">
           Rate this entry!
         </p>
         <div class="rating" id="user-rating"></div>
-      </div>
+      <% else %>
+        <p class="rating">
+          Sign in to rate this entry.
+        </p>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 
   <div class="row rating">
     <div class="col-md-8">
