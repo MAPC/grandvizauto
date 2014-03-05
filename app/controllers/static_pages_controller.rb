@@ -5,6 +5,20 @@ class StaticPagesController < ApplicationController
   def faq
   end
 
+  def data_terms
+    TermsMailer.data_terms_email(current_user).deliver
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def contest_rules
+    TermsMailer.contest_rules_email(current_user).deliver
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def download
     if current_user.update_attribute(:agreed, true)
       data = open(ENV['GVA_DATA_URL'])

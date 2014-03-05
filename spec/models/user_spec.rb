@@ -14,6 +14,9 @@ describe User do
   it { should respond_to :judge }
 
   it { should respond_to :email }
+  it { should respond_to :confirmed }
+  it { should respond_to :confirmation_code }
+  it { should respond_to :ip }
 
   it { should respond_to :provider }
   it { should respond_to :uid }

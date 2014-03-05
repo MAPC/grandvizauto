@@ -14,7 +14,20 @@ Grandvizauto::Application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors =  true
+  config.action_mailer.delivery_method       = :smtp
+  config.action_mailer.default_url_options   = {
+    host: '37billionmilechallenge.org'
+  }
+  config.action_mailer.smtp_settings         = {
+    address:             'mail.mapc.org',
+    port:                 25,
+    domain:              'mapc.org',
+    user_name:            ENV['MAIL_USERNAME'],
+    password:             ENV['MAIL_PASSWORD'],
+    authentication:      :login,
+    enable_starttls_auto: true
+  }
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log

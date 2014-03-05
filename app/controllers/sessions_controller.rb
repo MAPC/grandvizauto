@@ -1,8 +1,9 @@
 class SessionsController < ApplicationController
 
   def create
-    auth = request.env['omniauth.auth'] 
-    user = User.find_by_provider_and_uid(auth['provider'], auth['uid']) || User.create_with_omniauth(auth)
+    auth = request.env['omniauth.auth']
+    ip   = request.remote_ip
+    user = User.find_by_provider_and_uid(auth['provider'], auth['uid']) || User.create_with_omniauth_and_ip(auth, ip)
     if user
       session[:user_id] = user.id
       redirect_to root_url, success: "Signed in with #{auth['provider'].titleize}"

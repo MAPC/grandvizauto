@@ -26,11 +26,14 @@ h1, h2, h3, h4, h5, h6 {
   text-shadow: 0px  -4px 8px $sky-blue,
               -2px   0px 4px $dusty-yellow,
                0px   4px 8px $sunset-pink;
+  .no-shadow {
+    text-shadow: none;
+  }
   text-align: center;
   letter-spacing: 1px;
 }
 
-#download-button {
+.download-button {
   box-shadow: 0px -4px 8px $sky-blue,
                -4px  0px 8px $dusty-yellow,
                4px  0px 8px $dusty-yellow,

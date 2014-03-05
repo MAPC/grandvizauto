@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update_attributes(params[:user])
+    if @user.update_attributes(params[:user].merge({ ip: request.remote_ip }))
       flash[:alert] = "Your profile has been updated!"
       sign_in @user
       redirect_to user_path(@user)
