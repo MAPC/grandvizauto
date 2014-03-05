@@ -1,8 +1,7 @@
 Grandvizauto::Application.routes.draw do
 
   match "/data" => "static_pages#data"
-  match "/challenge" => "static_pages#challenge"
-  match "/agree" => "static_pages#download"
+  match "/faq" => "static_pages#faq"
 
   match '/auth/:provider/callback' => 'sessions#create'
   match "/signout" => "sessions#destroy", as: :signout
