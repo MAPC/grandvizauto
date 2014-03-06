@@ -10,7 +10,9 @@
         <h3>By submitting an entry to the data challenge, you are agreeing to these terms.</h3>
         <%= render 'shared/contest_rules' %>
 
-        <%= link_to 'Email me the contest rules', '/email-contest-rules', method: :post, remote: true %>
+        <span>
+          <%= link_to 'Email me the contest rules', '/email-contest-rules', class: 'email-me', method: :post, remote: true %>
+        </span>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close Terms.</button>

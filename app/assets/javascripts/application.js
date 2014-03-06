@@ -16,3 +16,9 @@
 //= require jquery.raty.min
 //= require jquery.socialSharers
 //= require_tree .
+
+$(document).on('ready', function () {
+  $('.email-me').on('click', function () {
+    $(this).parent().html('<p class="grayout">Sent!</p>')
+  })
+})

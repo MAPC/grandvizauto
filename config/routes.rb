@@ -10,7 +10,10 @@ Grandvizauto::Application.routes.draw do
   match "/signout" => "sessions#destroy", as: :signout
 
   resources :submissions
+
   resources :users
+  match "users/:id/confirm/:code" => 'users#confirm'
+
   resources :ratings, only: [:create, :update]
 
   root to: "static_pages#home"

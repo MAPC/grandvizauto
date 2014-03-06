@@ -10,4 +10,9 @@ class TermsMailer < ActionMailer::Base
     @user = user
     mail(to: @user.email, subject: '37 Billion Miles: Contest Rules')
   end
+
+  def confirm_email(user)
+    @user = user
+    mail(to: @user.email, subject: 'Confirm Your Email Address')
+  end
 end

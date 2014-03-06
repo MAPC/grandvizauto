@@ -1,6 +1,6 @@
 <div class="row download-data">
   <div class="col-xs-12">
-    <% if signed_in? %>
+    <% if signed_in? && confirmed_user? %>
       <div class="data-button">
         <button class="btn btn-success btn-lg download-button" data-toggle="modal" data-target="#agreement">
           Download the Data
@@ -9,7 +9,7 @@
       <%= render 'static_pages/agreement' %>
     <% else %>
       <p>
-        <a href="#top">Sign in above</a> to download the data.
+        <a href="#top">Sign in above</a> and confirm an email address to download the data.
       </p>
     <% end %>
   </div>

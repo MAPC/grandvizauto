@@ -10,7 +10,9 @@
         <h3>You must agree to these terms to download the data.</h3>
         <%= render 'shared/data_terms' %>
 
-        <%= link_to 'Email me the data terms', '/email-data-terms', method: :post, remote: true %>
+        <span>
+          <%= link_to 'Email me the data terms', '/email-data-terms', class: 'email-me', method: :post, remote: true %>
+        </span>
         
       </div>
       <div class="modal-footer">

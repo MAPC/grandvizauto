@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>
+      You updated your email. Please confirm it by clicking the link below.
+      <a href="http://localhost:3000/users/<%= @user.id %>/confirm/<%= @user.confirmation_code %>">
+        Confirm email
+      </a>
+    </p>
+  </body>
+</html>
