@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
 
   validates :email, allow_blank: true, allow_nil: true,
              format: { with: VALID_EMAIL_REGEX }
+  validates :email, presence: true, on: :update
 
   def self.create_with_omniauth_and_ip(auth, ip)
     create! do |user|

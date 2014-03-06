@@ -17,11 +17,11 @@ class UsersController < ApplicationController
     
 
     if @user.save
-      flash[:alert] = "Your profile has been updated!"
+      flash[:notice] = "Your profile has been updated!"
       send_confirmation_email if !@user.confirmed
       sign_in_to_profile
     else
-      flash[:alert] = "You submitted invalid information."
+      flash[:notice] = "You submitted invalid information."
       render 'edit'
     end
   end

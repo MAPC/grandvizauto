@@ -6,15 +6,24 @@ class SessionsController < ApplicationController
     user = User.find_by_provider_and_uid(auth['provider'], auth['uid']) || User.create_with_omniauth_and_ip(auth, ip)
     if user
       session[:user_id] = user.id
-      redirect_to root_url, success: "Signed in with #{auth['provider'].titleize}"
+
+      if user.confirmed?
+        flash[:success] = "Signed in with #{auth['provider'].titleize}"
+        redirect_to root_url
+      else
+        flash[:success] = "Please add an email address to your profile."
+        redirect_to edit_user_path(user)
+      end
+
     else
-      flash.now[:alert] = "Could not sign in user with #{auth['provider'].titleize}."
+      flash.now[:notice] = "Could not sign in user with #{auth['provider'].titleize}."
       redirect_to root_url
     end
   end
 
   def destroy
     sign_out
-    redirect_to root_url, success: "You signed out. See ya!"
+    flash[:success] = "You signed out. See ya!"
+    redirect_to root_url
   end
 end
