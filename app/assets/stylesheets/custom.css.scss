@@ -369,9 +369,11 @@ input.form-control, textarea.form-control {
   text-align: center;
   .row { padding: 10px 0 }
  img {
-    // position: relative;
+    position: relative;
     max-width: 350px;
     max-height: 70px;
+    vertical-align: middle;
+    bottom: 0;
   }
   img.primary {
     max-height: 140px;
