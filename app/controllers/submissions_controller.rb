@@ -67,7 +67,6 @@ class SubmissionsController < ApplicationController
 
     def correct_user
       @submission = Submission.find params[:id]
-      # puts "@user: #{@user.name} (#{@user.id}) | current_user: #{current_user.name} (#{current_user.id})"
       redirect_to root_url, error: "You cannot edit another user's submission." unless current_user?(@submission.user)
     end
 

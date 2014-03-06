@@ -6,12 +6,15 @@ describe "Static pages" do
 
   describe "Home page" do
     before { visit root_path }
-    it { should have_selector('h1', text: '37 Billion Miles') }
+    it { should have_selector('a', text: '37 Billion Miles') }
 
     describe "when signed in" do
-      let(:user) { FactoryGirl.create(:user) }
-      before { sign_in user }
-      it { should have_selector('button', 'Download')}
+      before { login_with_oauth }
+      it { should have_selector('button', text: 'Download'      )}
+      it { should have_selector('li',     text: 'Sign Out'      )}
+      it { should have_selector('li',     text: 'My Profile'    )}
+      it { should have_selector('li',     text: 'Edit Profile'  )}
+      it { should have_selector('li',     text: 'Welcome, Matt' )}
     end
   end
 

@@ -1,7 +1,7 @@
 <%= link_to(submission_path(submission)) do %>
   <li class="submission" style="background-image:url(<%= local_path_for(submission) %>)" >
     <div class="text">
-      submission.title
+      <%= submission.title %>
     </div>
   </li>
 <% end %>

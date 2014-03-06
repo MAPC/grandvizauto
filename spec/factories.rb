@@ -2,7 +2,7 @@ FactoryGirl.define do
   factory :user do
     name      "Matt"
     provider  "github"
-    uid       "000001"
+    uid       "010101"
   end
 end
 
