@@ -40,6 +40,11 @@
               <li>
                 <%= link_to 'My Profile', user_path(current_user) %>
               </li>
+              <% if admin_user? %>
+                <li>
+                  <%= link_to 'Moderate Submissions', submissions_path %>
+                </li>
+              <% end %>
               <!-- <li>
                 < link_to 'New Entry', new_submission_path %>
               </li> -->

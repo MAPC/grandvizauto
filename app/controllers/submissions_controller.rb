@@ -1,15 +1,21 @@
 class SubmissionsController < ApplicationController
-  before_filter :signed_in_user, except: [:index, :show]
+  before_filter :signed_in_user, except: [:index, :show  ]
   before_filter :correct_user,   only:   [:edit,  :update]
+  before_filter :admin_user,     only:   [:index, :approve, :reject]
 
 
   def index
-    @submissions = Submission.page params[:page]
+    @submissions = Submission.unscoped.page params[:page]
   end
 
 
   def show
-    @submission = Submission.find params[:id]
+    if admin_user?
+      @submission = Submission.unscoped.find params[:id] 
+    else
+      @submission = Submission.find params[:id]
+    end
+    
     if signed_in?
       @rating     = Rating.where(user_id: current_user.id, submission_id: @submission.id).first || Rating.new(user: current_user, submission: @submission, score: 0)
     end
@@ -59,6 +65,26 @@ class SubmissionsController < ApplicationController
     redirect_to current_user
   end
 
+  def approve
+    @submission = Submission.unscoped.find params[:id]
+    if @submission.update_attribute(:approved, true)
+      TermsMailer.moderate_email(@submission).deliver
+      respond_to do |format|
+        format.js
+      end
+    end
+  end
+
+  def reject
+    @submission = Submission.find params[:id]
+    if @submission.update_attribute(:approved, false)
+      TermsMailer.moderate_email(@submission).deliver
+      respond_to do |format|
+        format.js
+      end
+    end
+  end
+
   private
 
     def signed_in_user
@@ -68,6 +94,10 @@ class SubmissionsController < ApplicationController
     def correct_user
       @submission = Submission.find params[:id]
       redirect_to root_url, notice: "You cannot edit another user's submission." unless current_user?(@submission.user)
+    end
+
+    def admin_user
+      redirect_to root_url, notice: "Only admin users can moderate." unless signed_in? && admin_user?
     end
 
 end

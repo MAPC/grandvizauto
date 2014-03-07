@@ -1,3 +1,11 @@
+<% if signed_in? && admin_user? %>
+  <% if submission.approved %>
+    <%= render partial: 'submissions/reject_link', locals: {submission: submission} %>
+  <% else %>
+    <%= render partial: 'submissions/approve_link', locals: {submission: submission} %>
+  <% end %>
+<% end %>
+
 <%= link_to(submission_path(submission)) do %>
   <li class="submission" style="background-image:url(<%= local_path_for(submission) %>)" >
     <div class="text">

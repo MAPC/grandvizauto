@@ -13,6 +13,12 @@ class TermsMailer < ActionMailer::Base
 
   def confirm_email(user)
     @user = user
-    mail(to: @user.email, subject: 'Confirm Your Email Address')
+    mail(to: @user.email, subject: 'Confirm Your Email Address for 37 Billion Miles')
+  end
+
+  def moderate_email(submission)
+    @submission = submission
+    @user = @submission.user
+    mail(to: @user.email, subject: "Your Submission Was Moderated")
   end
 end

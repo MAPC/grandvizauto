@@ -4,6 +4,7 @@ class Rating < ActiveRecord::Base
   belongs_to :user
 
   validates :score, presence: true, inclusion: 0..5
+  validates :user_id, uniqueness: { scope: :submission_id }
 
   
 

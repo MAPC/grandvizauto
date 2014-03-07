@@ -1,0 +1,1 @@
+$(".reject-link#<%= @submission.id %>").replaceWith("<%= escape_javascript(render partial: 'submissions/approve_link', locals: {submission: @submission}) %>");

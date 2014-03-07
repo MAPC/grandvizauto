@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>
+      <%= @user.name %>:
+    </p>
+
+    <p>
+      Your entry to the 37 Billion Mile Challenge, <strong><%= @submission.title %></strong>, has been <%= @submission.approved? ? "approved" : "rejected" %>.
+    </p>
+
+    <p>
+      Please email <a href="mailto:37billionmiles@mapc.org">37billionmiles@mapc.org</a> if you have questions.
+    </p>
+
+    <p>
+      Thank you for participating in the challenge!
+    </p>
+
+  </body>
+</html>

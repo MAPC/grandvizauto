@@ -1,8 +1,13 @@
 <h1 class="page-header">Newest Submissions</h1>
 
-<ul class="submissions">
-  <%= render @submissions.recent %>
-</ul>
+<div class="row">
+  <div class="col-xs-12 paginate">
+    <ul class="submissions">
+      <%= render @submissions.recent %>
+    </ul>
+  </div>
+</div>
+
 
 <div class="row">
   <div class="col-xs-12 paginate">

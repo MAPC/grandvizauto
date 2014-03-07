@@ -20,6 +20,7 @@ class Submission < ActiveRecord::Base
   validates_attachment_presence :screenshot
   validates_attachment_content_type :screenshot, content_type: /\Aimage\/.*\Z/i
 
+  default_scope { where(approved: true) }
   scope :recent, order("created_at DESC")
 
   paginates_per 10
