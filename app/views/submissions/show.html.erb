@@ -76,6 +76,10 @@
           </p>
         <% end %>
         <div class="rating" id="user-rating"></div>
+      <% elsif signed_in? && current_user?(@submission.user) %>
+        <p class="rating">
+          Sorry, you can't rate your own entry!
+        </p>
       <% else %>
         <p class="rating">
           Sign in to rate this entry.
