@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_many :ratings
-  has_many :submissions
+  has_many :submissions, dependent: :destroy
   attr_accessible :name, :email, :ip, :confirmed, :confirmation_code
 
   before_save :create_confirmation_code

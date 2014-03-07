@@ -17,8 +17,12 @@ module SessionsHelper
     user == current_user
   end
 
+  def admin_user?
+    signed_in? && current_user.admin?
+  end
+
   def confirmed_user?
-    current_user.confirmed?
+    signed_in? && current_user.confirmed?
   end
 
   def signed_in?

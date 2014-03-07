@@ -9,10 +9,16 @@ Grandvizauto::Application.routes.draw do
   match '/auth/:provider/callback' => 'sessions#create'
   match "/signout" => "sessions#destroy", as: :signout
 
-  resources :submissions
+  resources :submissions do
+    member do
+      get "approve"
+      get "reject"
+    end
+  end
 
-  resources :users
-  match "users/:id/confirm/:code" => 'users#confirm'
+  resources :users do
+    get "confirm/:code" => 'users#confirm'
+  end
 
   resources :ratings, only: [:create, :update]
 

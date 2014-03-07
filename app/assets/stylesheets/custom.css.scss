@@ -298,6 +298,10 @@ div.rating {
     padding-top: 90px;
     border-bottom: 2px solid #268c26;
     margin-bottom: 30px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 
     &:last-child {
       border-bottom: none;
