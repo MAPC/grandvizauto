@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   end
 
   def confirm
-    @user = User.find params[:id]
+    @user = User.find params[:user_id]
 
     if @user.confirmation_code == params[:code]
       @user.update_attributes(confirmed: true, confirmation_code: nil)
