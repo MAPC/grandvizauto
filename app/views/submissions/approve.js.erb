@@ -1,1 +1,1 @@
-$(".approve-link#<%= @submission.id %>").replaceWith("<a href='/submissions/<%= @submission.id %>/reject' data-remote='true' class='reject-link moderate-link' id='<%= @submission.id %>'>Reject</a>");
+$(".approve-link#<%= @submission.id %>").replaceWith("<%= escape_javascript(render partial: 'submissions/reject_link', locals: {submission: @submission}) %>");
