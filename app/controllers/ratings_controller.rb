@@ -2,9 +2,11 @@ class RatingsController < ApplicationController
 
   def create
     @rating = Rating.new(params[:rating])
+    @submission = @rating.submission
+
     if @rating.save
       respond_to do |format|
-        format.js
+        format.js {render 'ratings/create'}
       end
     end
   end

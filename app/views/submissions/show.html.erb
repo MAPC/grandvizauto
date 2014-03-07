@@ -66,9 +66,15 @@
   <div class="row rating">
     <div class="col-md-8">
       <% if signed_in? && !current_user?(@submission.user) %>
-        <p class="rating">
-          Rate this entry!
-        </p>
+        <% if @rating.new_record? %>
+          <p class="rating new-rating">
+            Rate this entry!
+          </p>
+        <% else %>
+          <p class="rating">
+            Your Rating
+          </p>
+        <% end %>
         <div class="rating" id="user-rating"></div>
       <% else %>
         <p class="rating">
@@ -119,7 +125,7 @@ $(document).on('ready', function () {
       path: '/assets',
       click: function(score, evt) {
         $.ajax({
-          <% if @rating.score == 0 %>
+          <% if @rating.new_record? %>
           url: '/ratings/',
           type: 'POST',
           data: { rating: {
