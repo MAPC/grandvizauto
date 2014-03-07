@@ -15,7 +15,7 @@ class RatingsController < ApplicationController
 
     if @rating.update_attributes(score: params[:score])
       respond_to do |format|
-        format.js
+        format.js {render 'ratings/create'}
       end
     end
   end
