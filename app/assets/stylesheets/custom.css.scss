@@ -7,6 +7,7 @@ $sunset-pink:     #C98568;
 html, body {
   background-color: $background-dark !important;
   overflow-x: hidden;
+  padding-top: 30px;
 }
 
 .container {
@@ -146,8 +147,9 @@ aside {
 
 section {
   border-bottom: 2px solid #DDD;
-  padding-bottom: 50px;
-  margin-bottom: 70px;
+  padding-top: 70px;
+  padding-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 hr {
