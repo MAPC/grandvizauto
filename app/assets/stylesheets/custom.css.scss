@@ -116,7 +116,9 @@ h6 { font-size: 1em;    }
   ul {
     padding-top: 10px;  
     list-style-type: none;
-    &.with-bullets { list-style-type: disc; }
+    &.with-bullets { li:before {
+      content: "\0BB \020";
+    } }
   }
 
   li {
