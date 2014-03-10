@@ -20,6 +20,22 @@ Grandvizauto::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
+  # Care if the mailer can't send
+  config.action_mailer.raise_delivery_errors =  true
+  config.action_mailer.delivery_method       = :smtp
+  config.action_mailer.default_url_options   = {
+    host: '37billionmilechallenge.org'
+  }
+  config.action_mailer.smtp_settings         = {
+    address:             'mail.mapc.org',
+    port:                 25,
+    domain:              'mapc.org',
+    user_name:            ENV['MAIL_USERNAME'],
+    password:             ENV['MAIL_PASSWORD'],
+    authentication:      :login,
+    enable_starttls_auto: true
+  }
+
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
 
