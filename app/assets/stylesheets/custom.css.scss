@@ -116,6 +116,7 @@ h6 { font-size: 1em;    }
   ul {
     padding-top: 10px;  
     list-style-type: none;
+    &.with-bullets { list-style-type: disc; }
   }
 
   li {
@@ -378,7 +379,7 @@ input.form-control, textarea.form-control {
  img {
     position: relative;
     max-width: 350px;
-    max-height: 70px;
+    max-height: 80px;
     vertical-align: middle;
     bottom: 0;
   }
