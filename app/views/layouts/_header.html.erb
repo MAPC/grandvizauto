@@ -12,23 +12,25 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="collapsible-navbar">
-      <ul class="nav navbar-nav navbar-left">
-        <li>
-          <a href="#the-challenge">The Challenge</a>
-        </li>
-        <li>
-          <a href="#the-data">The Data</a>
-        </li>
-        <li>
-          <a href="#datathon">Datathon</a>
-        </li>
-        <li>
-          <a href="#schedule">Schedule</a>
-        </li>
-        <li>
-          <a href="#judges">Judges</a>
-        </li>
-      </ul>
+      <% if @home %>
+        <ul class="nav navbar-nav navbar-left">
+          <li>
+            <a href="#the-challenge">The Challenge</a>
+          </li>
+          <li>
+            <a href="#the-data">The Data</a>
+          </li>
+          <li>
+            <a href="#datathon">Datathon</a>
+          </li>
+          <li>
+            <a href="#schedule">Schedule</a>
+          </li>
+          <li>
+            <a href="#judges">Judges</a>
+          </li>
+        </ul>
+      <% end %>
       <ul class="nav navbar-nav navbar-right">
         <li>
           <a href="/faq">FAQ</a>
