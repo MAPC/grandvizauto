@@ -29,7 +29,7 @@ Grandvizauto::Application.configure do
   config.action_mailer.smtp_settings         = {
     address:             'mail.mapc.org',
     port:                 25,
-    domain:              'mapc.org',
+    domain:              '37billionmilechallenge.org',
     user_name:            ENV['MAIL_USERNAME'],
     password:             ENV['MAIL_PASSWORD'],
     authentication:      :login,
