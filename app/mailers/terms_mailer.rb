@@ -1,5 +1,5 @@
 class TermsMailer < ActionMailer::Base
-  default from: 'confirm@37billionmiles.org'
+  default from: 'confirm@37billionmilechallenge.org'
 
   def data_terms_email(user)
     @user = user

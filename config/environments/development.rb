@@ -20,12 +20,13 @@ Grandvizauto::Application.configure do
     host: '37billionmilechallenge.org'
   }
   config.action_mailer.smtp_settings         = {
-    address:             'mail.mapc.org',
-    port:                 25,
-    domain:              'mapc.org',
+    address:              "smtp.zoho.com", 
+    port:                 465,
     user_name:            ENV['MAIL_USERNAME'],
     password:             ENV['MAIL_PASSWORD'],
-    authentication:      :login,
+    authentication:       :login,
+    ssl:                  true,
+    tls:                  true,
     enable_starttls_auto: true
   }
 
