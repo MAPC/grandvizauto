@@ -36,6 +36,8 @@ Grandvizauto::Application.configure do
     enable_starttls_auto: true
   }
 
+  config.action_dispatch.ip_spoofing_check = false
+
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
 
