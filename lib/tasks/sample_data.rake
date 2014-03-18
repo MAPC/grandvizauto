@@ -48,9 +48,12 @@ namespace :db do
       nums.sample.times do
         rating = entry.ratings.create( score: few.sample + 1)
         rating.user = User.offset(rand(User.count-1)+1).first
-        rating.save
-        rating.reload
-        puts "#{entry.title} by #{entry.user.name}: #{rating.score} by #{rating.user.name}"
+
+        if rating.valid?
+          rating.save
+          rating.reload
+          puts "#{entry.title} by #{entry.user.name}: #{rating.score} by #{rating.user.name}"
+        end
       end
     end
 

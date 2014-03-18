@@ -391,3 +391,10 @@ input.form-control, textarea.form-control {
 }
 
 .navbar-brand { padding-right: 30px; }
+
+li#datathon-link {
+  background-color: #DAA123;
+  a {
+    color: #FFF !important;
+  }
+}
