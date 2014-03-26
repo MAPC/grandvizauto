@@ -41,12 +41,21 @@ class Submission < ActiveRecord::Base
 
   def average_user_rating # excludes judge ratings
     return 0 if self.ratings.empty?
-    self.ratings.select { |r| !r.user.judge? }.sum { |r| r.score }
+    average_out( self.ratings.select { |r| !r.user.judge? } )
   end
 
   def average_judge_rating
     return 0 if self.ratings.empty?
-    self.ratings.select { |r| r.user.judge? }.sum { |r| r.score }
+    average_out( self.ratings.select { |r|  r.user.judge? } )
+  end
+
+
+  def non_zero_ratings
+    self.ratings.select { |r| r.score != 0 }
+  end
+
+  def average_out(ratings)
+    ratings.sum { |r| r.score } / ratings.count
   end
 
 

@@ -20,7 +20,7 @@ Grandvizauto::Application.routes.draw do
     get "confirm/:code" => 'users#confirm'
   end
 
-  resources :ratings, only: [:create, :update]
+  resources :ratings, only: :update
 
   root to: "static_pages#home"
   

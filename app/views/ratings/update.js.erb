@@ -1,0 +1,19 @@
+$('#average-rating').raty({
+  readOnly: true,
+  score: <%= @submission.average_rating %>,
+  path: '/assets'
+});
+
+$('.new-rating').replaceWith('<p class="rating">Your Rating</p>')
+
+$('#user-rating').raty({
+  score: <%= @rating.score %>,
+  path: '/assets',
+  click: function(score, evt) {
+    $.ajax({
+      url: '/ratings/' + <%= @rating.id %>,
+      type: 'PUT',
+      data: { score: score }
+    });
+  }
+});

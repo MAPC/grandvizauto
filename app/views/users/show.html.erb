@@ -31,23 +31,33 @@
 <% end %>
 
 <div class="row">
+
   <% if @user.has_submissions? %>
     <div class="col-xs-12">
       <ul class="submissions">
         <%= render partial: 'submissions/submission', collection: @user.submissions %>
       </ul>
     </div>
-  <% elsif !@user.has_submissions? && current_user?(@user) %>
-    <div class="col-xs-12 col-md-6 col-md-offset-3">
-      <p>
-        Once we begin accepting submissions, you will see your entries here!  <!-- < link_to 'Submit a new entry!', new_submission_path %> -->
-      </p>
-    </div>
   <% else %>
     <div class="col-xs-12 col-md-6 col-md-offset-3">
+
       <p>
-        This user has not yet submitted an entry.
+      <% if current_user?(@user) %>
+        You have not yet submitted an entry.
+      <% else %>
+        <%= @user.name %> has not yet submitted an entry.
+      <% end %>
+      </p>
+      
+    </div>
+  <% end %>
+
+  <% if current_user?(@user) %>
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <p>
+        <%= link_to 'Submit a new entry!', new_submission_path %>
       </p>
     </div>
   <% end %>
+
 </div>

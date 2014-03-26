@@ -77,9 +77,7 @@
         <% end %>
         <div class="rating" id="user-rating"></div>
       <% elsif signed_in? && current_user?(@submission.user) %>
-        <p class="rating">
-          Sorry, you can't rate your own entry!
-        </p>
+        <p class="rating"></p>
       <% else %>
         <p class="rating">
           Sign in to rate this entry.
@@ -122,31 +120,17 @@ $(document).on('ready', function () {
     path: '/assets'
   });
 
-  <% if signed_in? && !current_user?(@submission.user) %>
-
-    $('#user-rating').raty({
-      score: '<%= @rating.score %>',
-      path: '/assets',
-      click: function(score, evt) {
-        $.ajax({
-          <% if @rating.new_record? %>
-          url: '/ratings/',
-          type: 'POST',
-          data: { rating: {
-                    user_id: <%= current_user.id %>,
-                    submission_id: <%= @submission.id %>,
-                    score: score }
-                }
-          <% else %>
-          url: '/ratings/' + <%= @rating.id %>,
-          type: 'PUT',
-          data: { score: score }
-          <% end %>
-        });
-      }
-    });
-  <% end %>
-
-  })
+  $('#user-rating').raty({
+    score: <%= @rating.score %>,
+    path: '/assets',
+    click: function(score, evt) {
+      $.ajax({
+        url: '/ratings/' + <%= @rating.id %>,
+        type: 'PUT',
+        data: { score: score }
+      });
+    }
+  });
+});
 
 </script>
