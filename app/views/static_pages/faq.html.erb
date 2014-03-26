@@ -69,7 +69,7 @@
       Can you elaborate on the questions that the challenge is seeking to answer?
     </h3>
     <p>
-      The bullets below include more background and additional questions that the data may help to answer. To get more ideas to help guide your data exploration, join us at the Datathon on March 22!
+      The bullets below include more background and additional questions that the data may help to answer. To get more ideas to help guide your data exploration, visit the <a href="tinyurl.com/datathon" target="_blank">Datathon Hackpad</a> and see what teams came up with on the March 22nd while exploring the data.
       <ul class="with-bullets">
         <li>
           What predicts auto usage, and where are the opportunities to reduce it? Vehicle ownership rates and mileage per vehicle vary substantially within and across the state’s communities. What neighborhood, community, or regional characteristics help to explain this variation? Do the results suggest certain areas or actions that might represent the best opportunities for shifting car travel to more sustainable modes of transportation?  
@@ -88,18 +88,20 @@
     <h3 id="5">
       What are the contest rules?
     </h3>
-
     <%= render 'shared/contest_rules' %>
+
     <h3 id="6">
-     Why does the metadata for the vehicle history table seem to be missing a field?  
+      Why does the metadata for the vehicle history table seem to be missing a field?  
     </h3>
     <p>
-      Because we inadvertently left out the field name and description for the fourth field, the Mileage Estimate ID.  A corrected metadata table is now posted on <a href="ftp://ftp.mapc.org/vmt/rae_public_metadata.csv" target="_blank">our ftp site.</a>
+      Because we inadvertently left out the field name and description for the fourth field, the Mileage Estimate ID.  A corrected metadata table is now posted on <a href="ftp://ftp.mapc.org/vmt/rae_public_metadata.csv" target="_blank">our FTP site.</a>
     </p>
-   <h3 id="7">
-     Why are some of the mileage estimates in the vehicle history table so high?  
+
+    <h3 id="7">
+      Why are some of the mileage estimates in the vehicle history table so high?  
     </h3>
     <p>
-    The inspection records contain odometer readings that are recorded by the technician conducting the inspection, and are subject to human error. While we omitted odometer readings that implied negative mileage between inspections, we did not set an upper bound on the mileage estimates in the vehicle history table, since we did not want to impose our own opinion of what constituted an erroneous reading versus a high mileage vehicle. However, the daily mileage estimates in the grid data (mipdaypass, mipdaybest, etc) are based only on vehicle records with daily mileage estimates of less than 200 miles per day, to prevent very high readings from skewing the averages.   
-    </p></div>
+      The inspection records contain odometer readings that are recorded by the technician conducting the inspection, and are subject to human error. While we omitted odometer readings that implied negative mileage between inspections, we did not set an upper bound on the mileage estimates in the vehicle history table, since we did not want to impose our own opinion of what constituted an erroneous reading versus a high mileage vehicle. However, the daily mileage estimates in the grid data (mipdaypass, mipdaybest, etc) are based only on vehicle records with daily mileage estimates of less than 200 miles per day, to prevent very high readings from skewing the averages.   
+    </p>
+  </div>
 </div>

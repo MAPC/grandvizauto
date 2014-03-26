@@ -59,6 +59,20 @@
         If you're looking for teammates or to learn more about working with data, check out the <a href="http://tinyurl.com/datathon" target="_blank">Datathon Hackpad</a> to catch up on what you might have missed.
       </p>
 
+
+      <% if signed_in? %>
+        
+        <div class="data-button">
+          <%= link_to 'Submit your project!', new_submission_path, class: "btn btn-success btn-lg download-button" %>
+        </div>
+      
+      <% else %>
+
+        <p align="center">Sign in (above) to submit your project!</p>
+
+      <% end %>
+
+
       <h3>
         Prizes
       </h3>
