@@ -1,5 +1,8 @@
 <div class="row download-data">
   <div class="col-xs-12">
+    
+    <h3>Primary Dataset</h3>
+
     <% if signed_in? && confirmed_user? %>
       <div class="data-button">
         <button class="btn btn-success btn-lg download-button" data-toggle="modal" data-target="#agreement">
@@ -9,8 +12,21 @@
       <%= render 'static_pages/agreement' %>
     <% else %>
       <p>
-        <a href="#top">Sign in above</a> and confirm an email address to download the data.
+        Sign in above and confirm an email address to download the primary dataset.
       </p>
     <% end %>
+    <p>
+      <div class="data-button">
+        <h3>Datathon Treat</h3>
+        <p>
+          <small>
+            The Datathon Treat is a collection of supplementary data about demographics, transit lines, Zipcar membership, and more. This is not a curated collection, and contains only as much metadata as we recieved.
+          </small>
+        </p>
+        <button class="btn btn-success download-button" data-toggle="modal">
+          Download the Datathon Treat
+        </button>
+      </div>
+    </p>
   </div>
 </div>
