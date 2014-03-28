@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :ratings
+  has_many :ratings,     dependent: :destroy
   has_many :submissions, dependent: :destroy
   attr_accessible :name, :email, :ip, :confirmed, :confirmation_code
 
@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
   end
 
   def favorites
-    self.ratings.includes(:submission).where("score > 0").order("score DESC").limit(10)
+    self.ratings.includes(:submission).order("score DESC").limit(10)
   end
 
   def has_submissions?

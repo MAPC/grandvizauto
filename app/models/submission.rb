@@ -23,7 +23,6 @@ class Submission < ActiveRecord::Base
   default_scope { where(approved: true) }
   scope :recent, order("created_at DESC")
 
-
   paginates_per 10
 
   def next
@@ -34,30 +33,34 @@ class Submission < ActiveRecord::Base
     self.class.where("id < ?", id).order("id DESC").first
   end
 
+  # class << self
+  #   def top
+  #     where("average_rating > 0").order("average_rating DESC").limit(10)
+  #   end
+  # end
+
   def average_rating
     return 0 if self.ratings.empty?
-    self.ratings.sum(:score) / self.ratings.count
+    self.ratings.sum(&:score) / self.ratings.count
   end
 
   def average_user_rating # excludes judge ratings
     return 0 if self.ratings.empty?
-    average_out( self.ratings.select { |r| !r.user.judge? } )
+    average_out( self.ratings.includes(:user).select {|r| !r.user.judge?} )
   end
 
   def average_judge_rating
     return 0 if self.ratings.empty?
-    average_out( self.ratings.select { |r|  r.user.judge? } )
+    average_out( self.ratings.includes(:user).select {|r|  r.user.judge?} )
   end
 
-
-  def non_zero_ratings
-    self.ratings.select { |r| r.score != 0 }
-  end
+  alias_method :average_score,        :average_rating
+  alias_method :average_user_score,   :average_user_rating
+  alias_method :average_judge_score,  :average_judge_rating
 
   def average_out(ratings)
-    ratings.sum { |r| r.score } / ratings.count
+    ratings.sum(&:score) / ratings.count
   end
-
 
   def user_name
     self.user.name

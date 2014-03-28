@@ -7,6 +7,6 @@ class Rating < ActiveRecord::Base
   validates :score, presence: true, inclusion: 1..5, on: :update
   validates :user_id, uniqueness: { scope: :submission_id }
 
-  
+  default_scope { where("score > 0") }
 
 end
