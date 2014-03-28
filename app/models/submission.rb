@@ -23,6 +23,7 @@ class Submission < ActiveRecord::Base
   default_scope { where(approved: true) }
   scope :recent, order("created_at DESC")
 
+
   paginates_per 10
 
   def next
@@ -32,7 +33,6 @@ class Submission < ActiveRecord::Base
   def prev
     self.class.where("id < ?", id).order("id DESC").first
   end
-
 
   def average_rating
     return 0 if self.ratings.empty?

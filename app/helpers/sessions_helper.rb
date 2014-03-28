@@ -21,6 +21,10 @@ module SessionsHelper
     signed_in? && current_user.admin?
   end
 
+  def judge_user?
+    signed_in? && current_user.judge?
+  end
+
   def confirmed_user?
     signed_in? && current_user.confirmed?
   end
