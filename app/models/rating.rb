@@ -9,4 +9,12 @@ class Rating < ActiveRecord::Base
 
   default_scope { where("score > 0") }
 
+  after_save :update_submission
+
+  private
+
+    def update_submission
+      self.submission.update_attribute(:average_score, self.submission.average_rating)
+    end
+
 end

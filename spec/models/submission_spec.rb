@@ -22,6 +22,8 @@ describe Submission do
   it { should respond_to :average_user_rating }
   it { should respond_to :average_judge_rating }
 
+  it { should respond_to :average_score }
+
   it { should respond_to :file }
   it { should respond_to :screenshot }
 

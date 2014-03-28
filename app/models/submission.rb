@@ -54,9 +54,9 @@ class Submission < ActiveRecord::Base
     average_out( self.ratings.includes(:user).select {|r|  r.user.judge?} )
   end
 
-  alias_method :average_score,        :average_rating
-  alias_method :average_user_score,   :average_user_rating
-  alias_method :average_judge_score,  :average_judge_rating
+  # alias_method :average_score,        :average_rating
+  # alias_method :average_user_score,   :average_user_rating
+  # alias_method :average_judge_score,  :average_judge_rating
 
   def average_out(ratings)
     ratings.sum(&:score) / ratings.count
