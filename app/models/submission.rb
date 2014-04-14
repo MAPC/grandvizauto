@@ -11,11 +11,11 @@ class Submission < ActiveRecord::Base
   validates :agreed, acceptance: { accept: true }
   validates :user, presence: true
 
-  validates :url, presence: { message: "Cannot be blank if you aren't uploading a file."},
+  validates :url, presence: { message: "URL cannot be blank if you aren't uploading a file."},
             length: { minimum: 7, maximum: 255 }, if: :no_file
   
   validates_attachment_presence :file, if: :no_url
-  validates_attachment_content_type :file, content_type: /\Aimage\/.*\Z|\A.*pdf\Z|\A.*html\Z|\A.*zip\Z/i
+  validates_attachment_content_type :file, content_type: /\Aimage\/.*\Z|\A.*pdf\Z|\A.*html\Z|\A.*zip\Z|\A.*7z-compressed\Z/i
   
   validates_attachment_presence :screenshot
   validates_attachment_content_type :screenshot, content_type: /\Aimage\/.*\Z/i
