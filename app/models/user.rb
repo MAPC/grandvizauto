@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :ratings
+  has_many :ratings,     dependent: :destroy
   has_many :submissions, dependent: :destroy
   attr_accessible :name, :email, :ip, :confirmed, :confirmation_code
 
@@ -31,9 +31,18 @@ class User < ActiveRecord::Base
     judge
   end
 
+  def favorites
+    self.ratings.includes(:submission).order("score DESC").limit(10)
+  end
+
   def has_submissions?
     submissions.length > 0
   end
+
+  def has_favorites?
+    favorites.length > 0
+  end
+
 
   private
 

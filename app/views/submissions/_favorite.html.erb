@@ -1,0 +1,7 @@
+<%= link_to(submission_path(favorite.submission)) do %>
+  <li class="submission" style="background-image:url(<%= local_path_for(favorite.submission) %>)" >
+    <div class="text">
+      <%= favorite.submission.title %> (My Rating: <%= favorite.score %>)
+    </div>
+  </li>
+<% end %>

@@ -61,3 +61,16 @@
   <% end %>
 
 </div>
+
+<div class="row">
+  <% if current_user?(@user) && judge_user? %>
+    <h3>My Favorite Entries</h3>
+      <% if @user.has_favorites? %>
+        <ul class="submissions">
+          <%= render partial: 'submissions/favorite', collection: @user.favorites %>
+        </ul>
+      <% else %>
+        <p>When you start rating submissions, your favorites will appear here.</p>
+      <% end %>
+  <% end %>
+</div>
