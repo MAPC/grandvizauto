@@ -1,6 +1,6 @@
 module ApplicationHelper
 
   def local_path_for(submission)
-    submission.screenshot.path
+    submission.screenshot.url
   end
 end
