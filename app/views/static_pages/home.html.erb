@@ -1,6 +1,27 @@
 <div class="jumbotron static"></div>
 
 <div class="row">
+  <div class="col-xs-6">
+    <h3>
+      Recent Entries
+    </h3>
+    <ul class="submissions">
+      <%= render @newest %>
+    </ul>
+  </div>
+
+  <div class="col-xs-6">
+    <h3>
+      Top Entries
+    </h3>
+    <ul class="submissions">
+      <%= render @top %>
+    </ul>
+  </div>
+</div>
+
+
+<div class="row">
   <div class="col-xs-12 col-md-8 col-md-offset-2">
 
     <section id="the-challenge">
@@ -13,7 +34,7 @@
 
       <p align="center">
         <%= link_to 'Enter the challenge', '#enter' %> | Entries due April 19
-      </p>
+      </p>      
 
       <p>
         The Metropolitan Area Planning Council, the Massachusetts Department of Transportation, and the Massachusetts Technology Collaborative invite you to explore anonymous vehicle-use data and discover insights that can help the Commonwealth build a more efficient and sustainable transportation system.

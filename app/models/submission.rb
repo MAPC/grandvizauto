@@ -23,6 +23,9 @@ class Submission < ActiveRecord::Base
   default_scope { where(approved: true) }
   scope :recent, order("created_at DESC")
 
+  scope :newest, order("created_at DESC").limit(5)
+  scope :top,    order("created_at ASC").limit(5)
+
   paginates_per 10
 
   def next

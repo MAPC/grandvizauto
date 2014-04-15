@@ -1,7 +1,7 @@
 class RatingsController < ApplicationController
 
   def update
-    @rating     = Rating.find params[:id]
+    @rating     = Rating.unscoped.find params[:id]
     @submission = @rating.submission
 
     if @rating.update_attributes(score: params[:score])

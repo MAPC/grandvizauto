@@ -21,7 +21,7 @@ class SubmissionsController < ApplicationController
     end
     
     if signed_in?
-      @rating = Rating.where(user_id: current_user.id, submission_id: @submission.id).first || Rating.create(user: current_user, submission: @submission, score: 0)
+      @rating = Rating.unscoped.where(user_id: current_user.id, submission_id: @submission.id).first || Rating.create(user: current_user, submission: @submission, score: 0)
     end
   end
 

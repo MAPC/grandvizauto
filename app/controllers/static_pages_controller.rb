@@ -1,6 +1,8 @@
 class StaticPagesController < ApplicationController
   def home
     @home = true
+    @newest = Submission.newest
+    @top    = Submission.top
   end
 
   def faq

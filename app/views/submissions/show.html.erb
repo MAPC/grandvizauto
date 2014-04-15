@@ -110,27 +110,29 @@
 
 </div>
 
-<script>
+<% if signed_in? %>
+  <script>
 
-$(document).on('ready', function () {
+  $(document).on('ready', function () {
 
-  $('#average-rating').raty({
-    readOnly: true,
-    score: <%= @submission.average_rating %>,
-    path: '/assets'
+    $('#average-rating').raty({
+      readOnly: true,
+      score: <%= @submission.average_score %>,
+      path: '/assets'
+    });
+
+    $('#user-rating').raty({
+      score: <%= @rating.score %>,
+      path: '/assets',
+      click: function(score, evt) {
+        $.ajax({
+          url: '/ratings/' + <%= @rating.id %>,
+          type: 'PUT',
+          data: { score: score }
+        });
+      }
+    });
   });
 
-  $('#user-rating').raty({
-    score: <%= @rating.score %>,
-    path: '/assets',
-    click: function(score, evt) {
-      $.ajax({
-        url: '/ratings/' + <%= @rating.id %>,
-        type: 'PUT',
-        data: { score: score }
-      });
-    }
-  });
-});
-
-</script>
+  </script>
+<% end %>
