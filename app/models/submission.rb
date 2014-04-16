@@ -6,6 +6,8 @@ class Submission < ActiveRecord::Base
   
   attr_accessible :approved, :description, :agreed, :title, :url, :file, :screenshot, :user
 
+  before_validation :smart_add_url_protocol
+
   validates :title, presence: true, length: { minimum: 3, maximum: 140 }
   validates :description, presence: true, length: { minimum: 60, maximum: 1500 }
   validates :agreed, acceptance: { accept: true }
@@ -15,7 +17,9 @@ class Submission < ActiveRecord::Base
             length: { minimum: 7, maximum: 255 }, if: :no_file
   
   validates_attachment_presence :file, if: :no_url
-  validates_attachment_content_type :file, content_type: /\Aimage\/.*\Z|\A.*pdf\Z|\A.*html\Z|\A.*zip\Z|\A.*7z-compressed\Z/i
+  validates_attachment_content_type :file,
+    content_type: /\Aimage\/.*\Z|\A.*pdf\Z|\A.*html\Z|\A.*zip\Z|\A.*7z-compressed\Z/i,
+    message: "Must be an image, pdf, html, zip, or 7z"
   
   validates_attachment_presence :screenshot
   validates_attachment_content_type :screenshot, content_type: /\Aimage\/.*\Z/i
@@ -35,12 +39,6 @@ class Submission < ActiveRecord::Base
   def prev
     self.class.where("id < ?", id).order("id DESC").first
   end
-
-  # class << self
-  #   def top
-  #     where("average_rating > 0").order("average_rating DESC").limit(10)
-  #   end
-  # end
 
   def average_rating
     return 0 if self.ratings.empty?
@@ -72,6 +70,14 @@ class Submission < ActiveRecord::Base
 
   alias_method :previous, :prev
 
+  protected
+
+  def smart_add_url_protocol
+    unless self.url[/\Ahttp:\/\//] || self.url[/\Ahttps:\/\//]
+      self.url = "http://#{self.url}"
+    end
+  end
+
   private
 
     def no_file
@@ -81,5 +87,6 @@ class Submission < ActiveRecord::Base
     def no_url
       self.url.nil?
     end
+
 
 end

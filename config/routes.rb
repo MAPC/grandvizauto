@@ -1,6 +1,5 @@
 Grandvizauto::Application.routes.draw do
 
-  match "/data" => "static_pages#data"
   match "/faq" => "static_pages#faq"
   match "/agree" => "static_pages#download"
   match "/email-data-terms" => "static_pages#data_terms"
