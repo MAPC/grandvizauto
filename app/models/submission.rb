@@ -19,7 +19,7 @@ class Submission < ActiveRecord::Base
   validates_attachment_presence :file, if: :no_url
   validates_attachment_content_type :file,
     content_type: /\Aimage\/.*\Z|\A.*pdf\Z|\A.*html\Z|\A.*zip\Z|\A.*7z-compressed\Z/i,
-    message: "Must be an image, pdf, html, zip, or 7z"
+    message: "Must be an image, pdf, html, zip, or 7z. You attempted to upload a #{self.inspect}"
   
   validates_attachment_presence :screenshot
   validates_attachment_content_type :screenshot, content_type: /\Aimage\/.*\Z/i
@@ -73,7 +73,7 @@ class Submission < ActiveRecord::Base
   protected
 
   def smart_add_url_protocol
-    unless self.url[/\Ahttp:\/\//] || self.url[/\Ahttps:\/\//]
+    unless self.url.blank? || self.url[/\Ahttp:\/\//] || self.url[/\Ahttps:\/\//]
       self.url = "http://#{self.url}"
     end
   end
