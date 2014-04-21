@@ -23,6 +23,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.judges
+    where(judge: true)
+  end
+
   def admin?
     admin
   end

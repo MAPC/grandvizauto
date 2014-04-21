@@ -51,8 +51,8 @@ class Submission < ActiveRecord::Base
   end
 
   def average_judge_rating
-    return 0 if self.ratings.empty?
-    average_out( self.ratings.includes(:user).select {|r|  r.user.judge?} )
+    return 0 if self.judge_ratings.empty?
+    average_out( self.judge_ratings )
   end
 
   # alias_method :average_score,        :average_rating
@@ -65,6 +65,10 @@ class Submission < ActiveRecord::Base
 
   def user_name
     self.user.name
+  end
+
+  def judge_ratings
+    self.ratings.includes(:user).select {|r| r.user.judge?}
   end
 
 

@@ -14,7 +14,8 @@ class Rating < ActiveRecord::Base
   private
 
     def update_submission
-      self.submission.update_attribute(:average_score, self.submission.average_rating)
+      self.submission.update_attribute(:average_score,       self.submission.average_rating)
+      self.submission.update_attribute(:average_judge_score, self.submission.average_judge_rating)
     end
 
 end
