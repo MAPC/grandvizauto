@@ -1,7 +1,7 @@
 class SubmissionsController < ApplicationController
   before_filter :signed_in_user, except: [:index,   :show  ]
   before_filter :correct_user,   only:   [:edit,    :update]
-  before_filter :admin_user,     only:   [:approve, :reject]
+  before_filter :admin_user,     only:   [:approve, :reject, :new]
 
 
   def index
