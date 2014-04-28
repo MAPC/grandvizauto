@@ -1,18 +1,26 @@
 <div class="jumbotron static"></div>
 
-<div class="row">
-  <div class="col-xs-12 col-md-6">
+<div class="row" id="vote">
+  <div class="col-xs-12 col-md-10 col-md-offset-1">
     <h3>
-      Recent Entries
+      Vote Now!
     </h3>
-    <ul class="submissions">
-      <%= render @newest %>
-    </ul>
-  </div>
+    <p>
+      <strong>The entries are in!</strong>
 
-  <div class="col-xs-12 col-md-6">
+      <% if signed_in? %>
+       Review
+      <% else %>
+        Sign in, review
+      <% end %>
+
+       <%= link_to 'the submissions', submissions_path %>, and vote for the entries you think best analyze, visualize, and explain the data.
+    </p>
+    <p>
+      Your ratings will determine which team receives the People's Choice award at the awards ceremony on May 1st. Voting will remain open until moments before the award is presented.
+    </p>
     <h3>
-      Top Entries (Vote Now!)
+      Top Entries
     </h3>
     <ul class="submissions">
       <%= render @top %>
@@ -196,7 +204,7 @@
 
           <li>
             <strong>May 1st: </strong>
-            Awards ceremony and reception 7:30-9 pm at District Hall, 75 Northern Ave., Boston.
+            Awards ceremony and reception 7:30-9:30 pm at District Hall, 75 Northern Ave., Boston.
           </li>
         </ul>
       </p>
