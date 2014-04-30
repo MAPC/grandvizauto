@@ -1,7 +1,20 @@
 <div class="jumbotron static"></div>
 
-<div class="row" id="vote">
+<div class="row" id="awards">
   <div class="col-xs-12 col-md-10 col-md-offset-1">
+    <h3>
+      Awards Reception Tomorrow!
+    </h3>
+    <p>
+      Join us as we announce the winners of the 37 Billion Mile Data Challenge! There will be a brief presentation of awards followed by a reception. This is a great opportunity to celebrate open data and network with transportation enthusiasts, programmers and designers. 
+    </p>
+    <p>
+      Thursday, May 1st, 7:30 pm at District Hall
+    </p>
+    <p>
+      <%= link_to "RSVP for the Awards Reception", "http://tinyurl.com/37billionawards", target: '_blank' %>
+    </p>
+
     <h3>
       Vote Now!
     </h3>
@@ -91,23 +104,6 @@
       <p>
         To learn more about working with the data, check out the <a href="http://tinyurl.com/datathon" target="_blank">Datathon Hackpad</a> to catch up on what you might have missed.
       </p>
-      <p>
-        If you're looking for teammates, tweet <a href="http://twitter.com/37BillionMiles" target="_blank">@37BillionMiles</a> with the hashtag #needateam, and we'll connect you with others. Also, visit the <a href="http://tinyurl.com/datathon" target="_blank">Datathon Hackpad</a>, claim a yet-to-be-formed team name under "Team Formation", and list it as "looking for members".
-      </p>
-
-
-      <% if signed_in? %>
-        
-        <div class="data-button">
-          <%= link_to 'Submit your project!', new_submission_path, class: "btn btn-success btn-lg download-button" %>
-        </div>
-      
-      <% else %>
-
-        <p align="center">Sign in (above) to submit your project!</p>
-
-      <% end %>
-
 
       <h3>
         Prizes
@@ -205,6 +201,7 @@
           <li>
             <strong>May 1st: </strong>
             Awards ceremony and reception 7:30-9:30 pm at District Hall, 75 Northern Ave., Boston.
+            <%= link_to "RSVP for the Awards Reception", "http://tinyurl.com/37billionawards", target: '_blank' %>
           </li>
         </ul>
       </p>
