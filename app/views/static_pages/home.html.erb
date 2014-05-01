@@ -50,7 +50,7 @@
       Top Five Entries (in no particular order)
     </h3>
     <ul class="submissions">
-      <%= render @top.shuffle %>
+      <%= render @top.sort_by{|e| e.average_user_rating}.reverse %>
     </ul>
   </div>
 </div>
