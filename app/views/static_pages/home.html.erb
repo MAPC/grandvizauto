@@ -47,10 +47,10 @@
       Your ratings will determine which team receives the People's Choice award at the awards ceremony on May 1st. Voting will remain open until moments before the award is presented.
     </p>
     <h3>
-      Top Entries
+      Top Five Entries (in no particular order)
     </h3>
     <ul class="submissions">
-      <%= render @top %>
+      <%= render @top.shuffle %>
     </ul>
   </div>
 </div>
