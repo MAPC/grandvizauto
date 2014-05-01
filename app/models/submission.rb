@@ -30,6 +30,8 @@ class Submission < ActiveRecord::Base
   scope :newest, order("created_at DESC").limit(5)
   scope :top,    order("average_score DESC").limit(5)
 
+  scope :winners, where("award IS NOT NULL").order(:id)
+
   paginates_per 10
 
   def next
@@ -53,6 +55,10 @@ class Submission < ActiveRecord::Base
   def average_judge_rating
     return 0 if self.judge_ratings.empty?
     average_out( self.judge_ratings )
+  end
+
+  def winner?
+    !award.nil?
   end
 
   # alias_method :average_score,        :average_rating

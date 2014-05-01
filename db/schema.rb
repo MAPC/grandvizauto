@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140421173548) do
+ActiveRecord::Schema.define(:version => 20140501172847) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20140421173548) do
     t.datetime "screenshot_updated_at"
     t.integer  "average_score",           :default => 0
     t.integer  "average_judge_score",     :default => 0
+    t.string   "award"
   end
 
   add_index "submissions", ["user_id"], :name => "index_submissions_on_user_id"

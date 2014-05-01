@@ -1,5 +1,19 @@
 <div class="jumbotron static"></div>
 
+
+<div class="row" id="awards">
+  <div class="col-xs-12 col-md-10 col-md-offset-1">
+    <h3>
+      Winners
+    </h3>
+    <ul class="submissions">
+      <%= render partial: 'submissions/winner', collection: @winners %>
+    </ul>
+  </div>
+</div>
+
+
+
 <div class="row" id="awards">
   <div class="col-xs-12 col-md-10 col-md-offset-1">
     <h3>

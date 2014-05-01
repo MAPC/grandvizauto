@@ -366,7 +366,15 @@ span.fill {
     }
   }
 
+}
 
+#banner {
+  position: relative;
+  top:    -48px;
+  left:   -60px;
+  width:  200px;
+  height: 343px;
+  z-index: 20;
 }
 
 input.form-control, textarea.form-control { 

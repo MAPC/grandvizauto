@@ -1,8 +1,12 @@
-
 <div class="jumbotron submission" style="background-image: url(<%= local_path_for(@submission) %>)">
+  <% if @submission.winner? %>
+    <div id="banner" style="background-image: url(/images/awards/<%= @submission.award.parameterize %>.png);"></div>
+  <% end %>
 </div>
 
-<h1 class="page-header"><%= @submission.title %></h1>
+<h1 class="page-header">
+  <%= @submission.title %>
+</h1>
 
 <div class="row">
 <div class="col-md-8">

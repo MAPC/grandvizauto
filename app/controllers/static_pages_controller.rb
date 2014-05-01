@@ -1,8 +1,9 @@
 class StaticPagesController < ApplicationController
   def home
-    @home = true
-    @newest = Submission.newest
-    @top    = Submission.top
+    @winners = Submission.winners
+    @newest  = Submission.newest
+    @top     = Submission.top
+    @home    = true
   end
 
   def faq

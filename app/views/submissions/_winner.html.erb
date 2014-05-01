@@ -1,0 +1,7 @@
+<%= link_to(submission_path(winner)) do %>
+  <li class="submission" style="background-image:url(<%= local_path_for(winner) %>)" >
+    <div class="text">
+      <%= winner.award %>: <%= winner.title %>
+    </div>
+  </li>
+<% end %>
