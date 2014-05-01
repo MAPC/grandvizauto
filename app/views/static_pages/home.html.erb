@@ -1,56 +1,13 @@
 <div class="jumbotron static"></div>
 
 
-<!-- <div class="row" id="awards">
+<div class="row" id="awards">
   <div class="col-xs-12 col-md-10 col-md-offset-1">
     <h3>
       Winners
     </h3>
     <ul class="submissions">
-      < render partial: 'submissions/winner', collection: @winners %>
-    </ul>
-  </div>
-</div> -->
-
-
-
-<div class="row" id="awards">
-  <div class="col-xs-12 col-md-10 col-md-offset-1">
-    <h3>
-      Awards Reception Tonight!
-    </h3>
-    <p>
-      Join us as we announce the winners of the 37 Billion Mile Data Challenge! There will be a brief presentation of awards followed by a reception. This is a great opportunity to celebrate open data and network with transportation enthusiasts, programmers and designers. 
-    </p>
-    <p>
-      Thursday, May 1st, 7:30 pm at District Hall
-    </p>
-    <p>
-      <%= link_to "RSVP for the Awards Reception", "http://tinyurl.com/37billionawards", target: '_blank' %>
-    </p>
-
-    <h3>
-      Vote Now!
-    </h3>
-    <p>
-      <strong>The entries are in!</strong>
-
-      <% if signed_in? %>
-       Review
-      <% else %>
-        Sign in, review
-      <% end %>
-
-       <%= link_to 'the submissions', submissions_path %>, and vote for the entries you think best analyze, visualize, and explain the data.
-    </p>
-    <p>
-      Your ratings will determine which team receives the People's Choice award at the awards ceremony on May 1st. Voting will remain open until moments before the award is presented.
-    </p>
-    <h3>
-      Top Entries (in order of average rating)
-    </h3>
-    <ul class="submissions">
-      <%= render @top.sort_by{|e| e.average_user_rating}.reverse %>
+      <%= render partial: 'submissions/winner', collection: @winners %>
     </ul>
   </div>
 </div>
